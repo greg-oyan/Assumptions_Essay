@@ -1,6 +1,6 @@
 # Assumptions_Essay
 
-A public writing workspace for developing an essay about assumptions: how they form, how they shape decisions, and how to notice when they are doing more work than the evidence.
+A public writing workspace and standalone interactive essay about assumptions: how they form, how they shape decisions, and how to notice when they are doing more work than the evidence.
 
 ## Purpose
 
@@ -16,6 +16,14 @@ This repository is set up to support the full essay process, from early notes th
 - `assets/` - images, diagrams, or other supporting media.
 - `archive/` - retired drafts and older material kept for reference.
 - `license/` - licensing notes for the writing and any future supporting code.
+- `docs/` - build plans, product notes, and decisions for the interactive artifact.
+- `index.html`, `styles.css`, `app.js` - the static interactive essay shell.
+
+## App
+
+Open `index.html` in a browser to run the current prototype.
+
+The app is intentionally static and data-driven so it can ship cleanly on GitHub Pages. Each room uses the same component and is powered by module data in `app.js`.
 
 ## Working Method
 

@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 820" role="img" aria-labelledby="title desc">
+  <title id="title">Cave paintings placeholder</title>
+  <desc id="desc">A textured cave wall with ochre animal forms and hand marks.</desc>
+  <defs>
+    <linearGradient id="wall" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#2b241c"/>
+      <stop offset="0.5" stop-color="#6b533a"/>
+      <stop offset="1" stop-color="#17120f"/>
+    </linearGradient>
+    <filter id="grain">
+      <feTurbulence type="fractalNoise" baseFrequency="0.012" numOctaves="5" seed="12"/>
+      <feColorMatrix type="saturate" values="0.18"/>
+      <feBlend mode="multiply" in2="SourceGraphic"/>
+    </filter>
+  </defs>
+  <rect width="1200" height="820" fill="url(#wall)"/>
+  <rect width="1200" height="820" fill="#000" opacity="0.18" filter="url(#grain)"/>
+  <path d="M130 420 C260 315 390 345 500 410 C610 475 742 462 890 366" fill="none" stroke="#c7763d" stroke-width="22" stroke-linecap="round" opacity="0.72"/>
+  <path d="M254 356 C300 302 406 297 470 353 C404 398 319 402 254 356Z" fill="none" stroke="#d69b55" stroke-width="16" opacity="0.72"/>
+  <path d="M400 350 L476 320 M406 364 L478 390 M292 348 L230 312 M298 366 L238 414" stroke="#d69b55" stroke-width="12" stroke-linecap="round" opacity="0.68"/>
+  <path d="M660 492 C722 438 816 438 888 492 C820 540 728 540 660 492Z" fill="none" stroke="#b75736" stroke-width="15" opacity="0.78"/>
+  <path d="M724 482 L672 446 M742 498 L700 548 M826 478 L888 430 M828 502 L884 548" stroke="#b75736" stroke-width="10" stroke-linecap="round" opacity="0.7"/>
+  <g fill="none" stroke="#edd0a4" stroke-width="8" stroke-linecap="round" opacity="0.62">
+    <path d="M948 250 C930 286 930 326 950 360"/>
+    <path d="M978 242 C964 290 966 332 986 366"/>
+    <path d="M1008 252 C1000 294 1002 328 1018 354"/>
+    <path d="M1034 278 C1032 306 1036 330 1048 350"/>
+    <path d="M928 360 C958 382 1002 384 1042 356"/>
+  </g>
+  <circle cx="154" cy="148" r="56" fill="#d3a84d" opacity="0.14"/>
+  <circle cx="1016" cy="642" r="120" fill="#000" opacity="0.18"/>
+</svg>

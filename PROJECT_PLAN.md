@@ -2,19 +2,20 @@
 
 ## Working Goal
 
-Develop a clear, thoughtful essay about assumptions and their role in reasoning, decision-making, communication, and self-understanding.
+Develop `What Do You See?`, a standalone interactive essay about inherited pictures and the stories they place on evidence.
 
 ## Near-Term Work
 
-- Define the central thesis.
-- Build a rough outline with 3 to 5 major sections.
-- Collect examples where hidden assumptions change the outcome of a conversation or decision.
-- Draft the first complete version.
-- Revise for clarity, evidence, and flow.
+- Build the multi-room static app shell on `master`.
+- Draft all five modules from the same level of polish before overworking the cave module.
+- Replace placeholder visuals with public-domain or properly licensed imagery.
+- Tighten the reveal language after the real images are in place.
+- Backfill source notes.
+- Ship through GitHub Pages.
 
 ## Open Questions
 
-- Should the essay be personal, analytical, practical, or a blend?
-- Who is the intended reader?
-- What kind of assumption is the main focus: social, philosophical, technical, emotional, or everyday practical?
-- Should the piece end with a framework, a story, or a question?
+- What exact Substack URL should the final link use?
+- Which real image should anchor each room?
+- How specific should the WWII memory evidence be: survey chart, archive object, or visual comparison?
+- Should the final pattern summary be more poetic, more diagnostic, or more restrained?

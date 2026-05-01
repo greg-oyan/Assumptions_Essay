@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 820" role="img" aria-labelledby="title desc">
+  <title id="title">Wild West placeholder</title>
+  <desc id="desc">A frontier street, railroad lines, ledger marks, and a dusk horizon.</desc>
+  <defs>
+    <linearGradient id="sky" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0" stop-color="#2e3940"/>
+      <stop offset="0.56" stop-color="#8f6b49"/>
+      <stop offset="1" stop-color="#1b1612"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="820" fill="url(#sky)"/>
+  <rect y="520" width="1200" height="300" fill="#2b2118"/>
+  <path d="M0 512 C180 460 290 502 432 474 C590 440 684 486 812 458 C960 426 1070 454 1200 414 L1200 820 L0 820Z" fill="#17130f" opacity="0.58"/>
+  <g fill="#2f251d" stroke="#b58b54" stroke-width="6" opacity="0.9">
+    <path d="M120 414 H330 V606 H120Z"/>
+    <path d="M150 348 H304 L330 414 H120Z"/>
+    <path d="M780 388 H1040 V604 H780Z"/>
+    <path d="M818 330 H1010 L1040 388 H780Z"/>
+  </g>
+  <g stroke="#d7bc82" stroke-width="8" stroke-linecap="round" opacity="0.72">
+    <path d="M444 820 L588 520"/>
+    <path d="M740 820 L616 520"/>
+    <path d="M492 728 H696"/>
+    <path d="M526 660 H668"/>
+    <path d="M558 596 H642"/>
+  </g>
+  <g stroke="#ead6b0" stroke-width="5" opacity="0.38">
+    <path d="M72 112 H384"/>
+    <path d="M72 152 H326"/>
+    <path d="M72 192 H362"/>
+    <path d="M824 124 H1102"/>
+    <path d="M824 164 H1040"/>
+    <path d="M824 204 H1082"/>
+  </g>
+  <g fill="none" stroke="#d3a84d" stroke-width="4" opacity="0.45">
+    <path d="M78 110 C94 130 104 148 112 176"/>
+    <path d="M126 110 C142 130 152 148 160 176"/>
+    <path d="M174 110 C190 130 200 148 208 176"/>
+    <path d="M222 110 C238 130 248 148 256 176"/>
+  </g>
+</svg>

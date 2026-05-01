@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 820" role="img" aria-labelledby="title desc">
+  <title id="title">Renaissance placeholder</title>
+  <desc id="desc">Layered manuscripts, arches, trade lines, and figure study marks.</desc>
+  <rect width="1200" height="820" fill="#17130f"/>
+  <rect x="92" y="72" width="442" height="654" rx="8" fill="#d7c7a5" opacity="0.92"/>
+  <rect x="600" y="96" width="490" height="596" rx="8" fill="#bfae89" opacity="0.78"/>
+  <g stroke="#533d2c" stroke-width="5" opacity="0.42">
+    <path d="M144 150 H480"/>
+    <path d="M144 190 H430"/>
+    <path d="M144 230 H476"/>
+    <path d="M144 270 H402"/>
+    <path d="M144 350 H486"/>
+    <path d="M144 390 H440"/>
+    <path d="M144 430 H486"/>
+  </g>
+  <path d="M684 606 V332 C684 236 760 160 856 160 C952 160 1028 236 1028 332 V606" fill="none" stroke="#4b3727" stroke-width="24" opacity="0.62"/>
+  <path d="M742 606 V344 C742 280 792 230 856 230 C920 230 970 280 970 344 V606" fill="none" stroke="#d3a84d" stroke-width="12" opacity="0.5"/>
+  <g fill="none" stroke="#774c36" stroke-width="7" stroke-linecap="round" opacity="0.58">
+    <circle cx="300" cy="590" r="68"/>
+    <path d="M300 522 V658"/>
+    <path d="M232 590 H368"/>
+    <path d="M250 542 L350 638"/>
+    <path d="M350 542 L250 638"/>
+  </g>
+  <g fill="none" stroke="#7b9a82" stroke-width="6" opacity="0.56">
+    <path d="M554 292 C648 256 724 286 802 348 C886 414 966 428 1084 380"/>
+    <path d="M548 510 C630 462 708 482 800 530 C890 578 982 592 1094 540"/>
+  </g>
+  <circle cx="854" cy="160" r="48" fill="#d3a84d" opacity="0.18"/>
+</svg>

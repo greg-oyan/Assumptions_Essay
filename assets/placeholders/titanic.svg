@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 820" role="img" aria-labelledby="title desc">
+  <title id="title">Titanic placeholder</title>
+  <desc id="desc">An ocean liner silhouette below an ice field in dark water.</desc>
+  <defs>
+    <linearGradient id="sea" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0" stop-color="#233646"/>
+      <stop offset="0.52" stop-color="#111820"/>
+      <stop offset="1" stop-color="#090b0d"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="820" fill="url(#sea)"/>
+  <path d="M0 536 C160 500 260 560 420 526 C574 494 690 556 846 524 C1000 494 1094 528 1200 500 L1200 820 L0 820Z" fill="#07090b" opacity="0.7"/>
+  <path d="M874 194 L1032 94 L1110 250 L1010 282 Z" fill="#dfe8e9" opacity="0.86"/>
+  <path d="M918 208 L1032 94 L1010 282 Z" fill="#aebfc4" opacity="0.52"/>
+  <path d="M186 500 H826 C794 552 744 582 660 590 H300 C236 586 202 556 186 500Z" fill="#1b1714"/>
+  <rect x="282" y="428" width="386" height="72" fill="#2f2923"/>
+  <rect x="330" y="368" width="78" height="60" fill="#332a20"/>
+  <rect x="460" y="348" width="78" height="80" fill="#332a20"/>
+  <rect x="590" y="374" width="78" height="54" fill="#332a20"/>
+  <g fill="#d3a84d" opacity="0.78">
+    <rect x="310" y="452" width="32" height="14"/>
+    <rect x="368" y="452" width="32" height="14"/>
+    <rect x="426" y="452" width="32" height="14"/>
+    <rect x="484" y="452" width="32" height="14"/>
+    <rect x="542" y="452" width="32" height="14"/>
+    <rect x="600" y="452" width="32" height="14"/>
+  </g>
+  <g stroke="#d8e0df" stroke-width="5" opacity="0.18">
+    <path d="M0 626 C144 596 256 650 390 622 C532 592 664 650 812 620 C980 586 1080 624 1200 604"/>
+    <path d="M0 690 C144 660 256 714 390 686 C532 656 664 714 812 684 C980 650 1080 688 1200 668"/>
+  </g>
+</svg>

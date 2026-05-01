@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 820" role="img" aria-labelledby="title desc">
+  <title id="title">WWII memory placeholder</title>
+  <desc id="desc">An archival chart and map fragments representing shifting public memory.</desc>
+  <rect width="1200" height="820" fill="#151719"/>
+  <rect x="90" y="82" width="1020" height="656" rx="8" fill="#e9dfc9" opacity="0.88"/>
+  <rect x="132" y="128" width="424" height="36" fill="#29323a" opacity="0.8"/>
+  <rect x="132" y="186" width="612" height="12" fill="#29323a" opacity="0.35"/>
+  <rect x="132" y="218" width="512" height="12" fill="#29323a" opacity="0.28"/>
+  <rect x="132" y="250" width="572" height="12" fill="#29323a" opacity="0.28"/>
+  <g transform="translate(132 354)">
+    <line x1="0" y1="252" x2="740" y2="252" stroke="#29323a" stroke-width="5" opacity="0.55"/>
+    <line x1="0" y1="0" x2="0" y2="252" stroke="#29323a" stroke-width="5" opacity="0.55"/>
+    <rect x="58" y="68" width="86" height="184" fill="#7a91a8"/>
+    <rect x="198" y="126" width="86" height="126" fill="#b95f42"/>
+    <rect x="338" y="38" width="86" height="214" fill="#7b9a82"/>
+    <rect x="478" y="96" width="86" height="156" fill="#d3a84d"/>
+    <rect x="618" y="154" width="86" height="98" fill="#6d5d50"/>
+  </g>
+  <path d="M826 214 C888 168 976 172 1032 224 C1004 276 924 302 852 270 C816 254 804 236 826 214Z" fill="#29323a" opacity="0.32"/>
+  <path d="M826 214 C864 232 902 224 936 196 M852 270 C892 246 940 246 1008 266" fill="none" stroke="#29323a" stroke-width="7" opacity="0.32"/>
+  <g stroke="#29323a" stroke-width="4" opacity="0.22">
+    <path d="M830 386 H1038"/>
+    <path d="M830 426 H1002"/>
+    <path d="M830 466 H1054"/>
+    <path d="M830 506 H996"/>
+    <path d="M830 546 H1042"/>
+  </g>
+</svg>
