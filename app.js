@@ -1,265 +1,475 @@
+const fallbackImage = "assets/placeholders/cave-paintings.svg";
+
 const modules = [
   {
     id: "caves",
     title: "Cave Paintings",
-    image: "assets/placeholders/cave-paintings.svg",
-    imageAlt: "Ochre animals and hand marks suggested on a dark cave wall.",
-    imageCredit: "Placeholder image for Phase 1. Replace with properly licensed Lascaux or Chauvet imagery.",
-    prompt: "What do you see?",
-    choices: [
+    image: {
+      url: "https://upload.wikimedia.org/wikipedia/commons/1/1e/Lascaux_painting.jpg",
+      fallback: "assets/placeholders/cave-paintings.svg",
+      alt: "Large animal figures painted on the wall at Lascaux.",
+      title: "Lascaux cave painting",
+      credit: "Wikimedia Commons",
+      license: "Public domain",
+      sourceUrl: "https://commons.wikimedia.org/wiki/File:Lascaux_painting.jpg"
+    },
+    sections: [
       {
-        id: "primitive-beginning",
-        label: "The first art of primitive people, reaching toward culture for the first time.",
-        frameSupplied: "the primitive-beginning story",
-        patternTags: ["clean-story", "progress", "distance"]
+        title: "The picture you carry",
+        body:
+          "When most of us hear cave painting, we picture cavemen. Not just the painters, but the whole world they lived in. Rough people. Crude people. Humans at the very beginning of becoming what we are now."
       },
       {
-        id: "skilled-tradition",
-        label: "A skilled visual tradition made by people whose minds were already fully human.",
-        frameSupplied: "the Chesterton reversal",
-        patternTags: ["continuity", "evidence-first", "skill"]
+        title: "What the record shows",
+        body:
+          "The people who made these paintings had human brains, human hands, and human skill. They made tools, cooked food, lived in groups, traded materials, buried their dead, and made art that took real practice. That does not prove they were gentle or noble. It just means the cartoon version is doing more work than the evidence."
       },
       {
-        id: "ritual-unknown",
-        label: "A sacred or ritual image whose meaning is mostly unavailable to us.",
-        frameSupplied: "the mystery frame",
-        patternTags: ["uncertainty", "evidence-first", "restraint"]
-      },
-      {
-        id: "hunting-tool",
-        label: "A practical hunting image, made to track, teach, or prepare.",
-        frameSupplied: "the practical-use frame",
-        patternTags: ["material-life", "function", "evidence-first"]
+        title: "What the picture leaves out",
+        body:
+          "We do not know their inner lives. We do not know what these paintings were for. We do not know whether this was hunting, ritual, teaching, memory, play, family, or something we no longer have categories for. Chesterton's nursery-wall idea matters because it breaks the spell. It does not prove the cave was a nursery. It asks why savage cave felt obvious before human home did."
       }
     ],
-    inheritedFrame: "primitive man",
-    alternativeReading:
-      "The quieter reading is that the distance may be in our imagination, not theirs. The image can look early without being simple. The maker may be less a child at the beginning of culture than an adult in a different room of it.",
-    anchorLine: "The evidence stayed still. The picture moved.",
+    closingLine: "The painting did not change. The people did not change. The picture did.",
+    interaction: {
+      type: "layers",
+      intro:
+        "The same evidence can receive more than one frame. None of these layers is presented as the answer.",
+      layers: [
+        {
+          id: "hunters",
+          label: "Hunters",
+          caption: "A hunting frame turns the wall into practice, memory, pursuit, and animal knowledge.",
+          annotations: [
+            { x: 19, y: 42, label: "Animal movement" },
+            { x: 38, y: 36, label: "Knowledge of bodies" },
+            { x: 68, y: 54, label: "Practice before pursuit" }
+          ]
+        },
+        {
+          id: "family",
+          label: "Family home",
+          caption: "A home frame asks what changes if these are not crude marks, but images in a human place.",
+          annotations: [
+            { x: 27, y: 34, label: "Recognition and teaching" },
+            { x: 52, y: 48, label: "A wall people returned to" },
+            { x: 82, y: 30, label: "Presence, not distance" }
+          ]
+        },
+        {
+          id: "sacred",
+          label: "Sacred space",
+          caption: "A sacred frame turns the cave into a threshold, where image, animal, place, and ritual meet.",
+          annotations: [
+            { x: 14, y: 18, label: "A charged place" },
+            { x: 56, y: 42, label: "Image as passage" },
+            { x: 78, y: 66, label: "Meaning withheld" }
+          ]
+        }
+      ]
+    },
     sources: [
       {
-        title: "Phase 6 source note",
-        url: "#",
-        note: "Backfill with a short note on Paleolithic cave art, dating, interpretation, and Chesterton's reversal."
+        title: "Lascaux image file",
+        url: "https://commons.wikimedia.org/wiki/File:Lascaux_painting.jpg",
+        note: "Wikimedia Commons file page lists the image as public domain."
+      },
+      {
+        title: "Lascaux dating overview",
+        url: "https://archeologie.culture.gouv.fr/lascaux/en/dating-figures-lascaux",
+        note: "French Ministry of Culture page on dating the figures at Lascaux."
+      },
+      {
+        title: "Cave art overview",
+        url: "https://www.britannica.com/art/cave-art",
+        note: "General background on Upper Paleolithic cave art and interpretation."
       }
     ]
   },
   {
     id: "west",
     title: "Wild West",
-    image: "assets/placeholders/wild-west.svg",
-    imageAlt: "A frontier town street, ledger marks, rail lines, and a low horizon.",
-    imageCredit: "Placeholder image for Phase 1. Replace with public-domain town, labor, railroad, or homestead imagery.",
-    prompt: "What do you see?",
-    choices: [
+    image: {
+      url: "https://upload.wikimedia.org/wikipedia/commons/5/5d/Deadwood_1876a.jpg",
+      fallback: "assets/placeholders/wild-west.svg",
+      alt: "Deadwood, Dakota Territory, photographed from a hillside in 1876.",
+      title: "Deadwood, Dakota Territory, 1876",
+      credit: "Unknown author, Wikimedia Commons",
+      license: "Public domain",
+      sourceUrl: "https://commons.wikimedia.org/wiki/File:Deadwood_1876a.jpg"
+    },
+    sections: [
       {
-        id: "lawless-frontier",
-        label: "A lawless frontier where civilization had not arrived yet.",
-        frameSupplied: "the lawless-frontier picture",
-        patternTags: ["clean-story", "order-from-chaos", "mythic-violence"]
+        title: "The picture you carry",
+        body:
+          "Most of us picture the Wild West through movies. Dusty streets, saloons, gunfights, sheriffs, outlaws, and a town that could turn violent at any moment. The frontier becomes the place where civilization has not quite arrived yet."
       },
       {
-        id: "working-landscape",
-        label: "A working landscape of farms, railroads, paperwork, credit, labor, and ordinary rules.",
-        frameSupplied: "the ordinary-working-life frame",
-        patternTags: ["material-life", "continuity", "evidence-first"]
+        title: "What the record shows",
+        body:
+          "Some towns were violent. Some people were dangerous. But much of frontier life was ordinary work. Cattle, farms, freight, weather, debt, court records, local rules, and long stretches of boredom. Many towns had gun restrictions. The famous cattle-drive era was short. Many cowboys were young men doing hard, low-paid work."
       },
       {
-        id: "entertainment-stage",
-        label: "A national stage where later entertainment made rare violence feel normal.",
-        frameSupplied: "the myth-making frame",
-        patternTags: ["public-memory", "clean-story", "performance"]
-      },
-      {
-        id: "collision-zone",
-        label: "A collision of law, business, Indigenous dispossession, migration, and force.",
-        frameSupplied: "the collision-zone frame",
-        patternTags: ["complexity", "material-life", "power"]
+        title: "What the picture leaves out",
+        body:
+          "Violence made the best stories, so violence became the picture. Dime novels, touring shows, advertising, and Hollywood did not invent the frontier, but they taught later generations how to imagine it. Gunfights survive in memory better than cattle prices, town ordinances, and paperwork."
       }
     ],
-    inheritedFrame: "the lawless frontier",
-    alternativeReading:
-      "The quieter record is ordinary in the useful way: wages, fences, court filings, freight schedules, family businesses, debt, weather, and paperwork. Later stories kept the gun smoke and misplaced the ledgers.",
-    anchorLine: "The evidence stayed still. The picture moved.",
+    closingLine: "The frontier did not change. The picture did.",
+    interaction: {
+      type: "provenance",
+      intro:
+        "Tap the image to reveal where this version of the West came from. Tap again to move to the next example.",
+      items: [
+        {
+          id: "buffalo-bill",
+          image: {
+            url: "https://upload.wikimedia.org/wikipedia/commons/3/3c/Buffalo_Bill%27s_wild_west_and_congress_of_rough_riders_of_the_world_LCCN94513621.jpg",
+            fallback: "assets/placeholders/wild-west.svg",
+            alt: "A color lithograph poster for Buffalo Bill's Wild West and Congress of Rough Riders of the World.",
+            title: "Buffalo Bill's Wild West poster",
+            credit: "Library of Congress via Wikimedia Commons",
+            license: "Public domain",
+            sourceUrl: "https://commons.wikimedia.org/wiki/File:Buffalo_Bill%27s_wild_west_and_congress_of_rough_riders_of_the_world_LCCN94513621.jpg"
+          },
+          label: "The performed frontier",
+          provenance: [
+            "Source: Library of Congress poster for Buffalo Bill's Wild West and Congress of Rough Riders of the World.",
+            "Year: 1899.",
+            "Original purpose: advertising a touring spectacle that packaged frontier life as popular entertainment."
+          ]
+        },
+        {
+          id: "great-train",
+          image: {
+            url: "https://upload.wikimedia.org/wikipedia/commons/9/9b/The_Great_Train_Robbery_0017.jpg",
+            fallback: "assets/placeholders/wild-west.svg",
+            alt: "Screenshot from the 1903 film The Great Train Robbery.",
+            title: "The Great Train Robbery",
+            credit: "Edwin S. Porter, Wikimedia Commons",
+            license: "Public domain in the United States",
+            sourceUrl: "https://commons.wikimedia.org/wiki/File:The_Great_Train_Robbery_0017.jpg"
+          },
+          label: "The cinematic outlaw",
+          provenance: [
+            "Source: screenshot from The Great Train Robbery.",
+            "Year: 1903.",
+            "Original purpose: a staged motion-picture drama built around pursuit, crime, and violence."
+          ]
+        },
+        {
+          id: "deadwood",
+          image: {
+            url: "https://upload.wikimedia.org/wikipedia/commons/5/5d/Deadwood_1876a.jpg",
+            fallback: "assets/placeholders/wild-west.svg",
+            alt: "Deadwood, Dakota Territory, photographed from a hillside in 1876.",
+            title: "Deadwood in 1876",
+            credit: "Unknown author, Wikimedia Commons",
+            license: "Public domain",
+            sourceUrl: "https://commons.wikimedia.org/wiki/File:Deadwood_1876a.jpg"
+          },
+          label: "The historical town",
+          provenance: [
+            "Source: historical photograph of Deadwood, Dakota Territory.",
+            "Year: 1876.",
+            "Original context: documentary town view, not a later movie set or advertising image."
+          ]
+        }
+      ]
+    },
     sources: [
       {
-        title: "Phase 6 source note",
-        url: "#",
-        note: "Backfill with notes on frontier courts, commerce, settlement records, dime novels, and Western film memory."
+        title: "Deadwood 1876 image file",
+        url: "https://commons.wikimedia.org/wiki/File:Deadwood_1876a.jpg",
+        note: "Wikimedia Commons file page lists the image as public domain."
+      },
+      {
+        title: "Deadwood in 1876, National Archives record",
+        url: "https://docsteach.org/document/deadwood-in-1876-general-view/",
+        note: "National Archives DocsTeach record for a Deadwood 1876 town photograph, public domain."
+      },
+      {
+        title: "Buffalo Bill's Wild West poster",
+        url: "https://commons.wikimedia.org/wiki/File:Buffalo_Bill%27s_wild_west_and_congress_of_rough_riders_of_the_world_LCCN94513621.jpg",
+        note: "Wikimedia Commons file page for an 1899 Library of Congress poster, public domain."
+      },
+      {
+        title: "The Great Train Robbery still",
+        url: "https://commons.wikimedia.org/wiki/File:The_Great_Train_Robbery_0017.jpg",
+        note: "Wikimedia Commons file page for a screenshot from Edwin S. Porter's 1903 film."
+      },
+      {
+        title: "Gun control in the Old West",
+        url: "https://www.smithsonianmag.com/history/gun-control-old-west-180968013/",
+        note: "Smithsonian Magazine summary of firearm restrictions in towns such as Tombstone."
+      },
+      {
+        title: "Cowboys and cattle drives",
+        url: "https://www.kansashistory.gov/kansapedia/cowboys/15597",
+        note: "Kansas Historical Society overview of the 1866 to 1885 cattle-drive period."
       }
     ]
   },
   {
     id: "wwii-memory",
     title: "WWII Contribution",
-    image: "assets/placeholders/wwii-memory.svg",
-    imageAlt: "A subdued chart, map grid, and archival document fragments about wartime memory.",
-    imageCredit: "Placeholder image for Phase 1. Replace with licensed chart, survey, or archival public-domain material.",
-    prompt: "What do you see?",
-    choices: [
+    image: {
+      url: "https://upload.wikimedia.org/wikipedia/commons/2/26/Stalingrad_aftermath.jpg",
+      fallback: "assets/placeholders/wwii-memory.svg",
+      alt: "Ruins in Stalingrad after fighting during the Second World War.",
+      title: "Stalingrad aftermath",
+      credit: "Wikimedia Commons",
+      license: "Public domain",
+      sourceUrl: "https://commons.wikimedia.org/wiki/File:Stalingrad_aftermath.jpg"
+    },
+    sections: [
       {
-        id: "settled-ledger",
-        label: "A settled ledger: the war happened once, so the memory should stay fixed.",
-        frameSupplied: "the fixed-event frame",
-        patternTags: ["fixed-memory", "clean-story", "ledger"]
+        title: "The picture you carry",
+        body:
+          "Ask many Americans today who did the most to defeat Nazi Germany and the answer feels almost automatic. America. Maybe the Allies if they are being careful. The images are D-Day, GIs liberating villages, and the Greatest Generation."
       },
       {
-        id: "shifting-memory",
-        label: "A public memory that changes with schooling, politics, cinema, family history, and national need.",
-        frameSupplied: "the shifting-memory frame",
-        patternTags: ["public-memory", "complexity", "identity"]
+        title: "What the record shows",
+        body:
+          "More than one story has real evidence behind it. The Soviet Union paid an almost unimaginable human cost and destroyed most of Germany's army on the Eastern Front. The United States supplied enormous industrial power, equipment, soldiers, and helped finish the war. Britain endured, fought, and held the line before America entered. None of these facts cancels the others."
       },
       {
-        id: "credit-contest",
-        label: "A contest over credit, because victory became part of national identity.",
-        frameSupplied: "the national-credit frame",
-        patternTags: ["identity", "power", "public-memory"]
-      },
-      {
-        id: "records-do-not-map",
-        label: "A set of casualty, production, and battle records that do not map neatly onto gratitude.",
-        frameSupplied: "the evidence-ledger frame",
-        patternTags: ["evidence-first", "complexity", "restraint"]
+        title: "What the picture leaves out",
+        body:
+          "Public memory has changed over time. Earlier postwar polling in France gave far more credit to the Soviet Union than people usually do now. Later, the Cold War, movies, textbooks, national memory, and politics changed the picture. The question of who won the war partly depends on what you measure, and partly on the generation and country answering it."
       }
     ],
-    inheritedFrame: "a fixed event",
-    alternativeReading:
-      "The event stayed fixed; the remembered proportion did not. Public memory is not the same object as the past. It is a living arrangement between evidence, identity, grief, gratitude, and whatever a country needs to tell itself next.",
-    anchorLine: "The evidence stayed still. The picture moved.",
+    closingLine: "The war did not change. The memory did.",
+    interaction: {
+      type: "timeline",
+      intro:
+        "This is a French IFOP polling series, not a U.S. series. It is included because it shows how public memory can move while the event stays fixed.",
+      note:
+        "Sources vary by country and methodology. This chart is meant to show the direction of memory, not produce a perfect apples-to-apples polling series.",
+      data: [
+        { year: 1945, usa: 20, ussr: 57 },
+        { year: 1994, usa: 49, ussr: 25 },
+        { year: 2004, usa: 58, ussr: 20 },
+        { year: 2014, usa: 49, ussr: 23 },
+        { year: 2015, usa: 54, ussr: 23 }
+      ]
+    },
     sources: [
       {
-        title: "Phase 6 source note",
-        url: "#",
-        note: "Backfill with survey history and a concise note on how national memory of wartime contribution changes over time."
+        title: "Stalingrad aftermath image file",
+        url: "https://commons.wikimedia.org/wiki/File:Stalingrad_aftermath.jpg",
+        note: "Wikimedia Commons file page lists the image as public domain."
+      },
+      {
+        title: "IFOP 2015 polling report",
+        url: "https://www.ifop.com/wp-content/uploads/2018/03/3025-1-study_file.pdf",
+        note: "IFOP poll of French respondents asking which nation contributed most to Germany's defeat in 1945."
+      },
+      {
+        title: "Herodote summary of IFOP results",
+        url: "https://www.herodote.net/histoire/synthese.php?ID=2566&ID_reac=-1&get_all=1&tout=1",
+        note: "Summary reports 1945 and 2015 IFOP figures and discusses memory change."
       }
     ]
   },
   {
     id: "titanic",
     title: "Titanic",
-    image: "assets/placeholders/titanic.svg",
-    imageAlt: "A large ocean liner silhouette moving through dark water beneath a pale ice field.",
-    imageCredit: "Placeholder image for Phase 1. Replace with public-domain Titanic imagery or licensed archival material.",
-    prompt: "What do you see?",
-    choices: [
+    image: {
+      url: "https://upload.wikimedia.org/wikipedia/commons/f/fd/RMS_Titanic_3.jpg",
+      fallback: "assets/placeholders/titanic.svg",
+      alt: "RMS Titanic at sea.",
+      title: "RMS Titanic",
+      credit: "Francis Godolphin Osbourne Stuart via Wikimedia Commons",
+      license: "Public domain",
+      sourceUrl: "https://commons.wikimedia.org/wiki/File:RMS_Titanic_3.jpg"
+    },
+    sections: [
       {
-        id: "technical-disaster",
-        label: "A technical maritime disaster: ice, speed, wireless warnings, lifeboat rules, and design tradeoffs.",
-        frameSupplied: "the systems-and-regulation frame",
-        patternTags: ["evidence-first", "systems", "material-life"]
+        title: "The picture you carry",
+        body:
+          "The Titanic story comes to us as a moral one. The unsinkable ship, brought down by human arrogance. Pride, then ice, then the sea. The disaster becomes a parable about hubris."
       },
       {
-        id: "hubris-punished",
-        label: "A punishment story about human arrogance: the unsinkable ship humbled by nature.",
-        frameSupplied: "the hubris story",
-        patternTags: ["moral-drama", "clean-story", "warning"]
+        title: "What the record shows",
+        body:
+          "The ship had too few lifeboats for everyone aboard, but it complied with the regulations of the time. Ice warnings were received, but such warnings were common on the route. The ship was moving fast, but not in a way that was obviously strange for the era. Weather and sea conditions made the iceberg harder to see."
       },
       {
-        id: "class-access",
-        label: "A class story about who was believed, who had access, and who survived.",
-        frameSupplied: "the class-and-access frame",
-        patternTags: ["power", "material-life", "moral-drama"]
-      },
-      {
-        id: "media-morality",
-        label: "A media story that became a morality play because disaster needs a shape.",
-        frameSupplied: "the media-myth frame",
-        patternTags: ["public-memory", "moral-drama", "performance"]
+        title: "What the picture leaves out",
+        body:
+          "The famous line about God not being able to sink the ship became powerful after the disaster, when people needed the event to mean something. The sinking was not only a morality play. It was also a chain of ordinary human decisions, outdated rules, class arrangements, assumptions, and bad luck. The moral story came later because disaster is hard to leave as disaster."
       }
     ],
-    inheritedFrame: "a moralized hubris story",
-    alternativeReading:
-      "The hubris version gives the event a clean moral. But the evidence is less sermon than system: regulations, class arrangements, commercial pressure, design assumptions, weather, warnings, response time, and the old human habit of believing the picture already in the room.",
-    anchorLine: "The evidence stayed still. The picture moved.",
+    closingLine: "The ship did not change. The story did.",
+    interaction: {
+      type: "comparison",
+      intro:
+        "The public language around Titanic quickly became grief, shock, blame, and meaning. The inquiry language was colder because it had to be.",
+      columns: [
+        {
+          title: "What people said after",
+          kicker: "Newspaper framing",
+          body:
+            "April 1912 headlines called the loss unparalleled, counted famous names, followed grieving crowds, and pressed for more lifeboats. The story was already becoming an emotional object.",
+          sourceTitle: "DALNET Titanic newspaper timeline",
+          sourceUrl: "https://www.dalnet.org/titanic/datepages/april16.html"
+        },
+        {
+          title: "What the inquiries found",
+          kicker: "Regulation and procedure",
+          body:
+            "The official inquiries focused on lifeboat capacity, outdated rules, inspection certificates, wireless practice, crew training, speed, and ice warnings. The record was less like a sermon than a system failure.",
+          sourceTitle: "Library of Congress law blog on Titanic lifeboat regulations",
+          sourceUrl: "https://blogs.loc.gov/law/2012/04/failure-to-update-the-law-a-titanic-mistake/"
+        }
+      ]
+    },
     sources: [
       {
-        title: "Phase 6 source note",
-        url: "#",
-        note: "Backfill with notes on Titanic inquiries, lifeboat regulations, wireless warnings, class, and later cultural memory."
+        title: "RMS Titanic image file",
+        url: "https://commons.wikimedia.org/wiki/File:RMS_Titanic_3.jpg",
+        note: "Wikimedia Commons file page lists the image as public domain."
+      },
+      {
+        title: "U.S. Senate final report page",
+        url: "https://www.senate.gov/artandhistory/history/common/image/TitanicHearingReport.htm",
+        note: "U.S. Senate Historical Office page for the final report of the Titanic hearings."
+      },
+      {
+        title: "Titanic lifeboat regulations",
+        url: "https://blogs.loc.gov/law/2012/04/failure-to-update-the-law-a-titanic-mistake/",
+        note: "Library of Congress law blog summarizes the 1912 legal and inquiry record."
+      },
+      {
+        title: "Titanic newspaper timeline",
+        url: "https://www.dalnet.org/titanic/datepages/april16.html",
+        note: "Detroit Area Library Network list of April 16, 1912 newspaper headlines."
       }
     ]
   },
   {
     id: "renaissance",
     title: "Renaissance",
-    image: "assets/placeholders/renaissance.svg",
-    imageAlt: "Layered manuscripts, arches, trade lines, and a figure study in muted light.",
-    imageCredit: "Placeholder image for Phase 1. Replace with public-domain manuscript, painting, or architectural imagery.",
-    prompt: "What do you see?",
-    choices: [
+    image: {
+      url: "https://upload.wikimedia.org/wikipedia/commons/f/fc/Laurentius_de_Voltolina_001.jpg",
+      fallback: "assets/placeholders/renaissance.svg",
+      alt: "Medieval university lecture scene by Laurentius de Voltolina.",
+      title: "Liber ethicorum des Henricus de Alemannia",
+      credit: "Laurentius de Voltolina via Wikimedia Commons",
+      license: "Public domain",
+      sourceUrl: "https://commons.wikimedia.org/wiki/File:Laurentius_de_Voltolina_001.jpg"
+    },
+    sections: [
       {
-        id: "clean-rebirth",
-        label: "A clean rebirth after darkness, when Europe woke up again.",
-        frameSupplied: "the clean-rebirth frame",
-        patternTags: ["rupture", "clean-story", "progress"]
+        title: "The picture you carry",
+        body:
+          "The Renaissance is usually told as a clean break. First the Dark Ages, then light. Art, science, humanism, and Europe waking up after a long sleep."
       },
       {
-        id: "long-continuity",
-        label: "A long continuity where medieval, Islamic, Byzantine, commercial, and classical threads met unevenly.",
-        frameSupplied: "the continuity frame",
-        patternTags: ["continuity", "complexity", "evidence-first"]
+        title: "What the record shows",
+        body:
+          "Medieval Europe already had universities, theology, trade, art, mathematics, engineering, and contact with classical and Islamic learning. Bologna, Paris, and Oxford were active well before the period most people call the Renaissance. Gothic cathedrals, scholastic philosophy, clocks, eyeglasses, Dante, Aquinas, and translation movements all complicate the darkness story."
       },
       {
-        id: "later-branding",
-        label: "A branding story later ages used to organize taste, status, and period labels.",
-        frameSupplied: "the period-label frame",
-        patternTags: ["public-memory", "performance", "power"]
-      },
-      {
-        id: "networked-boom",
-        label: "A regional art and knowledge boom made possible by money, institutions, and networks.",
-        frameSupplied: "the network-and-patronage frame",
-        patternTags: ["material-life", "systems", "continuity"]
+        title: "What the picture leaves out",
+        body:
+          "The Renaissance was real, but it was slower and messier than the story suggests. Money, patrons, cities, trade, printing, recovered texts, and institutions all mattered. The label came later. Darkness, then light is easier to remember than gradual accumulation, so the cleaner picture survived."
       }
     ],
-    inheritedFrame: "a clean rebirth narrative",
-    alternativeReading:
-      "Rebirth is a powerful picture because it gives history a before and after. The quieter reading is less theatrical: continuity, recovery, translation, trade, patronage, institutions, rival cities, and old materials becoming newly useful.",
-    anchorLine: "The evidence stayed still. The picture moved.",
+    closingLine: "The era did not change. The label did.",
+    interaction: {
+      type: "hiddenTimeline",
+      intro:
+        "The bar begins as a label. Open it and the supposed darkness fills with institutions, buildings, books, tools, and arguments.",
+      label: "The Dark Ages",
+      events: [
+        { year: "1088", title: "University of Bologna", detail: "Conventionally treated as the founding year of the Studium of Bologna." },
+        { year: "1096", title: "Oxford teaching", detail: "Teaching existed at Oxford in some form by this date." },
+        { year: "around 1150", title: "University of Paris", detail: "Paris emerged from the cathedral school milieu as a major teaching corporation." },
+        { year: "1163", title: "Notre-Dame begins", detail: "Construction of Notre-Dame de Paris begins in the twelfth century." },
+        { year: "1265 to 1273", title: "Aquinas writes the Summa", detail: "Thomas Aquinas composes the Summa Theologiae." },
+        { year: "late 1200s to 1300s", title: "Mechanical clocks", detail: "Mechanical clockmaking develops in Europe across the late medieval period." },
+        { year: "around 1290", title: "Eyeglasses", detail: "The first eyeglasses are usually placed in northern or central Italy around this period." },
+        { year: "1308 to 1321", title: "Dante writes the Comedy", detail: "Britannica dates Dante's poem to about 1308 to 1321." }
+      ]
+    },
     sources: [
       {
-        title: "Phase 6 source note",
-        url: "#",
-        note: "Backfill with notes on periodization, medieval continuity, classical transmission, patronage, and Renaissance self-description."
+        title: "Medieval lecture image file",
+        url: "https://commons.wikimedia.org/wiki/File:Laurentius_de_Voltolina_001.jpg",
+        note: "Wikimedia Commons file page lists the image as public domain."
+      },
+      {
+        title: "University of Bologna history",
+        url: "https://www.unibo.it/en/university/who-we-are/our-history",
+        note: "Official University of Bologna page describes 1088 as the conventional founding year."
+      },
+      {
+        title: "Oxford history",
+        url: "https://www.ox.ac.uk/about/organisation/history?wssl=1",
+        note: "Official Oxford page says teaching existed by 1096 and developed rapidly from 1167."
+      },
+      {
+        title: "Notre-Dame history",
+        url: "https://notre-dame-de-paris.culture.gouv.fr/fr/le-monument",
+        note: "Official Notre-Dame page gives 1163 to 1345 as the main construction span."
+      },
+      {
+        title: "University of Paris context",
+        url: "https://www.britannica.com/topic/education/Thomist-philosophy",
+        note: "Britannica describes the University of Paris as coming formally into being sometime between 1150 and 1170."
+      },
+      {
+        title: "Summa theologiae date",
+        url: "https://www.britannica.com/topic/Summa-theologiae",
+        note: "Britannica dates the Summa theologiae to about 1265 to 1273."
+      },
+      {
+        title: "Early mechanical clocks",
+        url: "https://www.metmuseum.org/art/collection/search/194107",
+        note: "The Metropolitan Museum notes late thirteenth-century records of horologia and fourteenth-century mechanical clock survivals."
+      },
+      {
+        title: "Eyeglasses history",
+        url: "https://www.britannica.com/science/eyeglasses",
+        note: "General source on the history of eyeglasses."
+      },
+      {
+        title: "The Divine Comedy date",
+        url: "https://www.britannica.com/topic/The-Divine-Comedy",
+        note: "Britannica dates The Divine Comedy to about 1308 to 1321."
       }
     ]
   }
 ];
 
-const tagDescriptions = {
-  "clean-story": "You often reached for the version with the cleanest story shape.",
-  "evidence-first": "You often let the artifact resist the story being placed on top of it.",
-  "public-memory": "You often noticed that memory is made after the event, not just during it.",
-  "material-life": "You often looked for work, systems, institutions, and ordinary pressure.",
-  continuity: "You often preferred slow continuity over sudden historical rupture.",
-  complexity: "You often chose the reading that lets several causes remain in the room.",
-  "moral-drama": "You often gave the evidence a moral shape.",
-  power: "You often looked for who benefits, who is excluded, and who gets to name the story.",
-  progress: "You often read the past as a climb from less to more.",
-  rupture: "You often favored the clean break: before, after, and a bright line between them.",
-  identity: "You often saw memory as something groups use to know who they are.",
-  systems: "You often looked for rules, incentives, tools, and arrangements.",
-  restraint: "You often left room for what the evidence cannot tell us.",
-  performance: "You often noticed the stage on which history becomes legible.",
-  skill: "You often saw craft before hierarchy.",
-  distance: "You often felt the past as far away before asking how far it really is.",
-  "order-from-chaos": "You often looked for civilization arriving to tame disorder.",
-  "mythic-violence": "You often recognized violence as the easiest thing for memory to keep.",
-  ledger: "You often expected memory to behave like an account book.",
-  warning: "You often read disaster as instruction.",
-  "fixed-memory": "You often treated memory as if it should remain stable once the facts are known.",
-  function: "You often looked for what an image or object was meant to do."
+const finalPage = {
+  heading: "What did you notice?",
+  body: [
+    "Five pictures. Five inherited stories. In each one, the familiar version was not stupid. It was just not the only way to arrange the evidence.",
+    "The point was never that history is unknowable. The point is that the version of history in your head got there from somewhere. Books. Movies. School. Family. Church. Politics. The country and time you grew up in.",
+    "The picture is not the past. It is a frame placed over the past, by people, for reasons.",
+    "Once you can see the frame, you can ask where it came from."
+  ],
+  closingLines: [
+    "We inherit pictures, not the past.",
+    "Sometimes the picture is stronger than the evidence."
+  ]
 };
 
+const substackUrl = "https://substack.com/";
+
 const state = {
-  view: "opening",
-  moduleIndex: 0,
-  screen: "evidence",
-  selectedChoiceId: null,
-  lockedChoices: {},
-  holding: false,
-  notesOpen: false
+  activeModuleIndex: 0,
+  caveLayer: "hunters",
+  provenanceIndex: 0,
+  revealedProvenance: {},
+  wwiiPosition: 0,
+  hiddenTimelineOpen: false
 };
+
+let initialHashHandled = false;
 
 const app = document.querySelector("#app");
 
@@ -272,424 +482,591 @@ function escapeHtml(value) {
     .replaceAll("'", "&#039;");
 }
 
-function currentModule() {
-  return modules[state.moduleIndex];
-}
-
-function currentSelection(module = currentModule()) {
-  const selectedId = state.lockedChoices[module.id] || state.selectedChoiceId;
-  return module.choices.find((choice) => choice.id === selectedId) || null;
-}
-
-function screenLabel() {
-  if (state.screen === "evidence") return "Evidence";
-  if (state.screen === "choice") return "Choice";
-  return "Reveal";
-}
-
-function setHash() {
-  let hash = "#start";
-  if (state.view === "module") {
-    hash = `#${currentModule().id}/${state.screen}`;
-  }
-  if (state.view === "final") {
-    hash = "#pattern";
-  }
-
-  if (window.location.hash !== hash) {
-    history.replaceState(null, "", hash);
-  }
-}
-
-function readHash() {
-  const raw = window.location.hash.replace("#", "");
-  if (!raw || raw === "start") return;
-  if (raw === "pattern") {
-    state.view = "final";
-    return;
-  }
-
-  const [moduleId, screen] = raw.split("/");
-  const moduleIndex = modules.findIndex((module) => module.id === moduleId);
-  const allowedScreens = ["evidence", "choice", "reveal"];
-  if (moduleIndex >= 0) {
-    state.view = "module";
-    state.moduleIndex = moduleIndex;
-    state.screen = allowedScreens.includes(screen) ? screen : "evidence";
-    state.selectedChoiceId = null;
-  }
+function renderCover() {
+  return `
+    <section id="cover" class="cover">
+      <div class="cover-inner">
+        <p class="eyebrow">Five experiments in the stories we inherit</p>
+        <h1>What Do You See?</h1>
+        <div class="cover-copy">
+          <p>I'm going to show you five pictures from history. For each one, I'll show you what the record says, what it does not settle, and where the picture in your head probably came from.</p>
+          <p>The point isn't that you're wrong. The point is that the picture came from somewhere, and it's worth knowing where.</p>
+        </div>
+        <button class="button primary" type="button" data-action="go-to" data-target="caves">Begin</button>
+      </div>
+    </section>
+  `;
 }
 
 function renderTopbar() {
-  if (state.view === "opening") return "";
-
-  const completedCount = modules.filter((module) => state.lockedChoices[module.id]).length;
-  const activeIndex = state.view === "final" ? modules.length : state.moduleIndex;
-
   return `
-    <header class="topbar">
-      <div class="progress" aria-label="Progress through the five rooms">
-        <div class="room-label">
-          ${state.view === "final" ? "Pattern" : `Room ${state.moduleIndex + 1} of ${modules.length}: ${escapeHtml(currentModule().title)}`}
-        </div>
-        <div class="track">
-          ${modules
-            .map((module, index) => {
-              const className = [
-                "track-step",
-                index === activeIndex ? "is-active" : "",
-                state.lockedChoices[module.id] ? "is-complete" : ""
-              ]
-                .filter(Boolean)
-                .join(" ");
-              return `<button class="${className}" type="button" data-room="${index}" aria-label="Go to ${escapeHtml(module.title)}"></button>`;
-            })
-            .join("")}
+    <header class="topbar" aria-label="Essay progress">
+      <a class="topbar-title" href="#cover" data-action="go-to" data-target="cover">What Do You See?</a>
+      <div class="progress" aria-label="Progress through essay sections">
+        <div class="progress-label" data-progress-label>Section 1 of ${modules.length}: ${escapeHtml(modules[0].title)}</div>
+        <div class="track" aria-label="Jump to a section">
+          ${modules.map((module, index) => `
+            <button
+              class="track-step ${index === 0 ? "is-active" : ""}"
+              type="button"
+              data-action="go-to"
+              data-target="${escapeHtml(module.id)}"
+              data-progress-index="${index}"
+              aria-label="Go to ${escapeHtml(module.title)}"
+            ></button>
+          `).join("")}
         </div>
       </div>
-      <div class="room-label">${completedCount} of ${modules.length} choices locked</div>
     </header>
   `;
 }
 
-function renderOpening() {
+function renderImage(image, className = "hero-figure") {
   return `
-    <main class="opening">
-      <h1>What Do You See?</h1>
-      <p>Five experiments in the stories we inherit.</p>
-      <div class="button-row">
-        <button class="button primary" type="button" data-action="begin">Begin</button>
-      </div>
-    </main>
+    <figure class="${className}">
+      <img
+        src="${escapeHtml(image.url)}"
+        data-fallback="${escapeHtml(image.fallback || fallbackImage)}"
+        alt="${escapeHtml(image.alt)}"
+        loading="lazy"
+      >
+      <figcaption>
+        <a href="${escapeHtml(image.sourceUrl)}">${escapeHtml(image.title)}</a>.
+        ${escapeHtml(image.credit)}.
+        ${escapeHtml(image.license)}.
+      </figcaption>
+    </figure>
   `;
 }
 
-function renderEvidence(module) {
+function renderTextSections(module) {
   return `
-    <section class="panel">
-      <p class="prompt">${escapeHtml(module.prompt)}</p>
-      <p class="body-copy">Stay with the image before the explanation arrives.</p>
-      <div class="button-row">
-        <button class="button primary" type="button" data-action="to-choice">Choose an interpretation</button>
-      </div>
-    </section>
-  `;
-}
-
-function renderChoice(module) {
-  const selectedId = state.selectedChoiceId || state.lockedChoices[module.id];
-  const canLock = Boolean(selectedId) && !state.holding;
-
-  return `
-    <section class="panel">
-      <p class="prompt">${escapeHtml(module.prompt)}</p>
-      <div class="choice-list" role="radiogroup" aria-label="Interpretations">
-        ${module.choices
-          .map((choice, index) => {
-            const selected = selectedId === choice.id;
-            return `
-              <button
-                class="choice ${selected ? "is-selected" : ""}"
-                type="button"
-                role="radio"
-                aria-checked="${selected ? "true" : "false"}"
-                data-choice="${escapeHtml(choice.id)}"
-              >
-                <span class="sr-only">Choice ${index + 1}: </span>${escapeHtml(choice.label)}
-              </button>
-            `;
-          })
-          .join("")}
-      </div>
-      <div class="button-row">
-        <button class="button primary" type="button" data-action="lock" ${canLock ? "" : "disabled"}>
-          ${state.holding ? "Holding..." : "Lock it in"}
-        </button>
-      </div>
-    </section>
-  `;
-}
-
-function renderSources(module) {
-  if (!state.notesOpen) return "";
-
-  return `
-    <aside class="notes" aria-label="Source notes">
-      <h2>Notes</h2>
-      <ul class="source-list">
-        ${module.sources
-          .map(
-            (source) => `
-              <li>
-                <a href="${escapeHtml(source.url)}">${escapeHtml(source.title)}</a>
-                <span>${escapeHtml(source.note)}</span>
-              </li>
-            `
-          )
-          .join("")}
-      </ul>
-    </aside>
-  `;
-}
-
-function renderReveal(module) {
-  const selected = currentSelection(module);
-  const suppliedFrame = selected ? selected.frameSupplied : "an unrecorded frame";
-  const isLast = state.moduleIndex === modules.length - 1;
-
-  return `
-    <section class="panel">
-      <p class="reveal-kicker">You supplied ${escapeHtml(suppliedFrame)}.</p>
-      <p class="reveal-frame">The inherited picture in this room is ${escapeHtml(module.inheritedFrame)}.</p>
-      <p class="body-copy">${escapeHtml(module.alternativeReading)}</p>
-      <p class="anchor">${escapeHtml(module.anchorLine)}</p>
-      <div class="button-row">
-        <button class="notes-toggle" type="button" data-action="toggle-notes">
-          ${state.notesOpen ? "Close notes" : "Notes"}
-        </button>
-        <button class="button primary" type="button" data-action="${isLast ? "to-final" : "next-room"}">
-          ${isLast ? "See your pattern" : "Next room"}
-        </button>
-      </div>
-      ${renderSources(module)}
-    </section>
-  `;
-}
-
-function renderRoom() {
-  const module = currentModule();
-  const screen = state.screen === "choice"
-    ? renderChoice(module)
-    : state.screen === "reveal"
-      ? renderReveal(module)
-      : renderEvidence(module);
-
-  return `
-    <main class="room">
-      <div class="room-heading">
-        <h1>${escapeHtml(module.title)}</h1>
-        <div class="screen-name">${screenLabel()}</div>
-      </div>
-      <div class="room-body">
-        <figure class="evidence">
-          <img src="${escapeHtml(module.image)}" alt="${escapeHtml(module.imageAlt)}">
-          <figcaption class="caption">${escapeHtml(module.imageCredit)}</figcaption>
-        </figure>
-        ${screen}
-      </div>
-    </main>
-  `;
-}
-
-function summarizePattern() {
-  const chosen = modules
-    .map((module) => {
-      const choiceId = state.lockedChoices[module.id];
-      const choice = module.choices.find((item) => item.id === choiceId);
-      return choice ? { module, choice } : null;
-    })
-    .filter(Boolean);
-
-  const tagCounts = chosen.reduce((counts, { choice }) => {
-    choice.patternTags.forEach((tag) => {
-      counts[tag] = (counts[tag] || 0) + 1;
-    });
-    return counts;
-  }, {});
-
-  const sortedTags = Object.entries(tagCounts)
-    .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
-    .map(([tag]) => tag);
-
-  const topDescriptions = sortedTags
-    .slice(0, 2)
-    .map((tag) => tagDescriptions[tag])
-    .filter(Boolean);
-
-  if (!topDescriptions.length) {
-    return "Your choices made a pattern, even before they made an argument.";
-  }
-
-  return `${topDescriptions.join(" ")} That is not a flaw. It is the picture becoming visible.`;
-}
-
-function renderFinal() {
-  const complete = modules.every((module) => state.lockedChoices[module.id]);
-
-  if (!complete) {
-    return `
-      <main class="closing">
-        <h1>Not quite yet.</h1>
-        <p>The pattern only works after all five rooms have an answer.</p>
-        <div class="button-row">
-          <button class="button primary" type="button" data-action="resume">Return to the rooms</button>
-        </div>
-      </main>
-    `;
-  }
-
-  return `
-    <main class="closing">
-      <div class="pattern">
-        <h2>Your pattern</h2>
-        <div class="pattern-grid">
-          ${modules
-            .map((module) => {
-              const choice = module.choices.find((item) => item.id === state.lockedChoices[module.id]);
-              return `
-                <article class="pattern-item">
-                  <strong>${escapeHtml(module.title)}</strong>
-                  <p>${escapeHtml(choice.label)}</p>
-                </article>
-              `;
-            })
-            .join("")}
-        </div>
-        <p class="pattern-summary">${escapeHtml(summarizePattern())}</p>
-      </div>
-      <h1>We inherit pictures, not the past.</h1>
-      <p>Sometimes the picture is stronger than the evidence.</p>
-      <a class="substack-link" href="#" aria-label="Substack link placeholder">Substack</a>
-    </main>
-  `;
-}
-
-function render() {
-  setHash();
-  const content = state.view === "opening"
-    ? renderOpening()
-    : state.view === "final"
-      ? renderFinal()
-      : renderRoom();
-
-  app.innerHTML = `
-    <div class="shell">
-      ${renderTopbar()}
-      <div class="stage">${content}</div>
+    <div class="module-text">
+      ${module.sections.map((section) => `
+        <section class="essay-block reveal-on-scroll">
+          <h3>${escapeHtml(section.title)}</h3>
+          <p>${escapeHtml(section.body)}</p>
+        </section>
+      `).join("")}
     </div>
   `;
 }
 
-function begin() {
-  state.view = "module";
-  state.moduleIndex = 0;
-  state.screen = "evidence";
-  state.selectedChoiceId = null;
-  state.notesOpen = false;
-  render();
+function renderLayerInteraction(module) {
+  const layers = module.interaction.layers;
+
+  return `
+    <section class="interaction layered-interaction reveal-on-scroll" aria-labelledby="${escapeHtml(module.id)}-interaction-title">
+      <div class="interaction-intro">
+        <h3 id="${escapeHtml(module.id)}-interaction-title">One image, three frames</h3>
+        <p>${escapeHtml(module.interaction.intro)}</p>
+      </div>
+      <div class="layer-controls" role="toolbar" aria-label="Interpretive layers">
+        ${layers.map((layer) => `
+          <button
+            class="layer-button ${layer.id === state.caveLayer ? "is-active" : ""}"
+            type="button"
+            data-action="set-layer"
+            data-layer="${escapeHtml(layer.id)}"
+            aria-pressed="${layer.id === state.caveLayer ? "true" : "false"}"
+          >${escapeHtml(layer.label)}</button>
+        `).join("")}
+      </div>
+      <figure class="layered-figure">
+        <img
+          src="${escapeHtml(module.image.url)}"
+          data-fallback="${escapeHtml(module.image.fallback)}"
+          alt="${escapeHtml(module.image.alt)}"
+          loading="lazy"
+        >
+        <div class="annotation-layer" aria-live="polite" data-annotation-layer></div>
+        <figcaption data-layer-caption></figcaption>
+      </figure>
+    </section>
+  `;
 }
 
-function goToRoom(index) {
-  if (index < 0 || index >= modules.length) return;
-  state.view = "module";
-  state.moduleIndex = index;
-  state.screen = state.lockedChoices[modules[index].id] ? "reveal" : "evidence";
-  state.selectedChoiceId = null;
-  state.notesOpen = false;
-  render();
+function renderProvenanceInteraction(module) {
+  const item = module.interaction.items[state.provenanceIndex];
+  const isRevealed = Boolean(state.revealedProvenance[item.id]);
+  const position = `${state.provenanceIndex + 1} of ${module.interaction.items.length}`;
+
+  return `
+    <section class="interaction provenance-interaction reveal-on-scroll" aria-labelledby="${escapeHtml(module.id)}-interaction-title">
+      <div class="interaction-intro">
+        <h3 id="${escapeHtml(module.id)}-interaction-title">Image provenance</h3>
+        <p>${escapeHtml(module.interaction.intro)}</p>
+      </div>
+      <div class="provenance-stage" data-provenance-stage>
+        <p class="provenance-count">${escapeHtml(position)}</p>
+        <button
+          class="provenance-image-button"
+          type="button"
+          data-action="advance-provenance"
+          aria-label="${isRevealed ? "Show next provenance image" : "Reveal provenance for this image"}"
+        >
+          <img
+            src="${escapeHtml(item.image.url)}"
+            data-fallback="${escapeHtml(item.image.fallback)}"
+            alt="${escapeHtml(item.image.alt)}"
+            loading="lazy"
+          >
+        </button>
+        <div class="provenance-copy">
+          <h4>${escapeHtml(item.label)}</h4>
+          ${isRevealed ? `
+            <ul>
+              ${item.provenance.map((line) => `<li>${escapeHtml(line)}</li>`).join("")}
+            </ul>
+            <p><a href="${escapeHtml(item.image.sourceUrl)}">${escapeHtml(item.image.title)}</a>. ${escapeHtml(item.image.license)}.</p>
+            <p class="quiet-note">Tap the image again for the next example.</p>
+          ` : `
+            <p class="quiet-note">Tap the image to reveal its source, year, and original context.</p>
+          `}
+        </div>
+      </div>
+    </section>
+  `;
 }
 
-function lockChoice() {
-  const module = currentModule();
-  if (!state.selectedChoiceId || state.holding) return;
+function renderTimelineInteraction(module) {
+  const points = module.interaction.data;
 
-  state.holding = true;
-  render();
-
-  window.setTimeout(() => {
-    state.lockedChoices[module.id] = state.selectedChoiceId;
-    state.holding = false;
-    state.screen = "reveal";
-    state.notesOpen = false;
-    render();
-  }, 1000);
+  return `
+    <section class="interaction timeline-interaction reveal-on-scroll" aria-labelledby="${escapeHtml(module.id)}-interaction-title">
+      <div class="interaction-intro">
+        <h3 id="${escapeHtml(module.id)}-interaction-title">Move the memory</h3>
+        <p>${escapeHtml(module.interaction.intro)}</p>
+      </div>
+      <div class="timeline-readout" aria-live="polite">
+        <div>
+          <span class="timeline-year" data-wwii-year>${points[0].year}</span>
+          <span class="timeline-label">poll year</span>
+        </div>
+        <div>
+          <span class="stat-number" data-wwii-usa>${points[0].usa}%</span>
+          <span class="timeline-label">crediting USA</span>
+        </div>
+        <div>
+          <span class="stat-number" data-wwii-ussr>${points[0].ussr}%</span>
+          <span class="timeline-label">crediting USSR or Russia</span>
+        </div>
+      </div>
+      <label class="sr-only" for="wwii-slider">Choose a year in the IFOP WWII memory polling series</label>
+      <input
+        id="wwii-slider"
+        class="timeline-slider"
+        type="range"
+        min="0"
+        max="${points.length - 1}"
+        step="0.01"
+        value="${state.wwiiPosition}"
+        data-action="wwii-slider"
+      >
+      <div class="timeline-years" aria-hidden="true">
+        ${points.map((point) => `<span>${point.year}</span>`).join("")}
+      </div>
+      <p class="source-inline">${escapeHtml(module.interaction.note)}</p>
+    </section>
+  `;
 }
 
-function nextRoom() {
-  if (state.moduleIndex >= modules.length - 1) {
-    state.view = "final";
-  } else {
-    state.moduleIndex += 1;
-    state.screen = "evidence";
-    state.selectedChoiceId = null;
-    state.notesOpen = false;
+function renderComparisonInteraction(module) {
+  return `
+    <section class="interaction comparison-interaction reveal-on-scroll" aria-labelledby="${escapeHtml(module.id)}-interaction-title">
+      <div class="interaction-intro">
+        <h3 id="${escapeHtml(module.id)}-interaction-title">Two kinds of language</h3>
+        <p>${escapeHtml(module.interaction.intro)}</p>
+      </div>
+      <div class="comparison-grid">
+        ${module.interaction.columns.map((column) => `
+          <article class="comparison-column">
+            <p class="comparison-kicker">${escapeHtml(column.kicker)}</p>
+            <h4>${escapeHtml(column.title)}</h4>
+            <p>${escapeHtml(column.body)}</p>
+            <a href="${escapeHtml(column.sourceUrl)}">${escapeHtml(column.sourceTitle)}</a>
+          </article>
+        `).join("")}
+      </div>
+    </section>
+  `;
+}
+
+function renderHiddenTimelineInteraction(module) {
+  return `
+    <section class="interaction hidden-timeline-interaction reveal-on-scroll" aria-labelledby="${escapeHtml(module.id)}-interaction-title">
+      <div class="interaction-intro">
+        <h3 id="${escapeHtml(module.id)}-interaction-title">Open the label</h3>
+        <p>${escapeHtml(module.interaction.intro)}</p>
+      </div>
+      <button
+        class="dark-age-bar ${state.hiddenTimelineOpen ? "is-open" : ""}"
+        type="button"
+        data-action="toggle-hidden-timeline"
+        data-timeline-trigger
+        aria-expanded="${state.hiddenTimelineOpen ? "true" : "false"}"
+      >
+        <span>${escapeHtml(module.interaction.label)}</span>
+      </button>
+      <div class="hidden-events ${state.hiddenTimelineOpen ? "is-open" : ""}" data-hidden-events>
+        ${module.interaction.events.map((event) => `
+          <article>
+            <span>${escapeHtml(event.year)}</span>
+            <h4>${escapeHtml(event.title)}</h4>
+            <p>${escapeHtml(event.detail)}</p>
+          </article>
+        `).join("")}
+      </div>
+    </section>
+  `;
+}
+
+function renderInteraction(module) {
+  if (!module.interaction) return "";
+  if (module.interaction.type === "layers") return renderLayerInteraction(module);
+  if (module.interaction.type === "provenance") return renderProvenanceInteraction(module);
+  if (module.interaction.type === "timeline") return renderTimelineInteraction(module);
+  if (module.interaction.type === "comparison") return renderComparisonInteraction(module);
+  if (module.interaction.type === "hiddenTimeline") return renderHiddenTimelineInteraction(module);
+  return "";
+}
+
+function renderSources(module) {
+  return `
+    <details class="sources reveal-on-scroll">
+      <summary>Sources and image notes</summary>
+      <ul>
+        ${module.sources.map((source) => `
+          <li>
+            <a href="${escapeHtml(source.url)}">${escapeHtml(source.title)}</a>
+            <span>${escapeHtml(source.note)}</span>
+          </li>
+        `).join("")}
+      </ul>
+    </details>
+  `;
+}
+
+function renderModule(module, index) {
+  return `
+    <section
+      id="${escapeHtml(module.id)}"
+      class="module-section"
+      data-observed-section
+      data-module-index="${index}"
+      aria-labelledby="${escapeHtml(module.id)}-title"
+    >
+      <div class="module-inner">
+        <p class="eyebrow">Section ${index + 1}</p>
+        <h2 id="${escapeHtml(module.id)}-title">${escapeHtml(module.title)}</h2>
+        ${renderImage(module.image)}
+        ${renderTextSections(module)}
+        ${renderInteraction(module)}
+        <p class="closing-line reveal-on-scroll">${escapeHtml(module.closingLine)}</p>
+        ${renderSources(module)}
+      </div>
+    </section>
+  `;
+}
+
+function renderFinal() {
+  return `
+    <section id="final" class="final-section" data-observed-section data-module-index="${modules.length}">
+      <div class="final-inner reveal-on-scroll">
+        <h2>${escapeHtml(finalPage.heading)}</h2>
+        <div class="final-copy">
+          ${finalPage.body.map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join("")}
+        </div>
+        <div class="spine-lines">
+          ${finalPage.closingLines.map((line) => `<p>${escapeHtml(line)}</p>`).join("")}
+        </div>
+        <a class="substack-link" href="${escapeHtml(substackUrl)}" aria-label="Read more on Substack">Read more on Substack</a>
+      </div>
+    </section>
+  `;
+}
+
+function render() {
+  app.innerHTML = `
+    <div class="essay-shell">
+      ${renderCover()}
+      ${renderTopbar()}
+      <main>
+        ${modules.map(renderModule).join("")}
+        ${renderFinal()}
+      </main>
+    </div>
+  `;
+
+  updateCaveLayer(state.caveLayer);
+  updateWwiiTimeline(state.wwiiPosition);
+  updateProgress(state.activeModuleIndex);
+  initializeImageFallbacks();
+  initializeObservers();
+  if (!initialHashHandled) {
+    initialHashHandled = true;
+    requestAnimationFrame(scrollToInitialHash);
   }
+}
+
+function getCaveModule() {
+  return modules.find((module) => module.id === "caves");
+}
+
+function getWwiiModule() {
+  return modules.find((module) => module.id === "wwii-memory");
+}
+
+function getRenaissanceModule() {
+  return modules.find((module) => module.id === "renaissance");
+}
+
+function getLayerById(layerId) {
+  const layers = getCaveModule().interaction.layers;
+  return layers.find((layer) => layer.id === layerId) || layers[0];
+}
+
+function updateCaveLayer(layerId) {
+  state.caveLayer = layerId;
+  const layer = getLayerById(layerId);
+  const annotationLayer = app.querySelector("[data-annotation-layer]");
+  const caption = app.querySelector("[data-layer-caption]");
+
+  app.querySelectorAll("[data-layer]").forEach((button) => {
+    const isActive = button.dataset.layer === layerId;
+    button.classList.toggle("is-active", isActive);
+    button.setAttribute("aria-pressed", String(isActive));
+  });
+
+  if (annotationLayer) {
+    annotationLayer.innerHTML = layer.annotations.map((annotation) => `
+      <span class="annotation" style="left: ${annotation.x}%; top: ${annotation.y}%;">
+        <span class="annotation-dot"></span>
+        <span class="annotation-label">${escapeHtml(annotation.label)}</span>
+      </span>
+    `).join("");
+  }
+
+  if (caption) {
+    caption.textContent = layer.caption;
+  }
+}
+
+function advanceProvenance() {
+  const west = modules.find((module) => module.id === "west");
+  const item = west.interaction.items[state.provenanceIndex];
+
+  if (!state.revealedProvenance[item.id]) {
+    state.revealedProvenance[item.id] = true;
+  } else {
+    state.provenanceIndex = (state.provenanceIndex + 1) % west.interaction.items.length;
+  }
+
   render();
 }
 
-function resume() {
-  const firstIncomplete = modules.findIndex((module) => !state.lockedChoices[module.id]);
-  goToRoom(firstIncomplete >= 0 ? firstIncomplete : 0);
+function interpolateTimeline(position) {
+  const points = getWwiiModule().interaction.data;
+  const clamped = Math.max(0, Math.min(points.length - 1, Number(position)));
+  const lowerIndex = Math.floor(clamped);
+  const upperIndex = Math.min(points.length - 1, Math.ceil(clamped));
+  const lower = points[lowerIndex];
+  const upper = points[upperIndex];
+  const ratio = upperIndex === lowerIndex ? 0 : clamped - lowerIndex;
+
+  return {
+    year: Math.round(lower.year + (upper.year - lower.year) * ratio),
+    usa: Math.round(lower.usa + (upper.usa - lower.usa) * ratio),
+    ussr: Math.round(lower.ussr + (upper.ussr - lower.ussr) * ratio),
+    progress: (clamped / (points.length - 1)) * 100
+  };
+}
+
+function updateWwiiTimeline(position) {
+  state.wwiiPosition = Number(position);
+  const values = interpolateTimeline(position);
+  const slider = app.querySelector("[data-action='wwii-slider']");
+  const year = app.querySelector("[data-wwii-year]");
+  const usa = app.querySelector("[data-wwii-usa]");
+  const ussr = app.querySelector("[data-wwii-ussr]");
+
+  if (slider) {
+    slider.value = state.wwiiPosition;
+    slider.style.setProperty("--slider-progress", `${values.progress}%`);
+  }
+  if (year) year.textContent = values.year;
+  if (usa) usa.textContent = `${values.usa}%`;
+  if (ussr) ussr.textContent = `${values.ussr}%`;
+}
+
+function setHiddenTimeline(open) {
+  state.hiddenTimelineOpen = open;
+  const bar = app.querySelector("[data-timeline-trigger]");
+  const events = app.querySelector("[data-hidden-events]");
+
+  if (bar) {
+    bar.classList.toggle("is-open", open);
+    bar.setAttribute("aria-expanded", String(open));
+  }
+  if (events) {
+    events.classList.toggle("is-open", open);
+  }
+}
+
+function goTo(targetId) {
+  const target = document.getElementById(targetId);
+  if (!target) return;
+
+  history.pushState(null, "", `#${targetId}`);
+  target.scrollIntoView({
+    behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth",
+    block: "start"
+  });
+}
+
+function scrollToInitialHash() {
+  const targetId = window.location.hash.replace("#", "");
+  if (!targetId) return;
+  const target = document.getElementById(targetId);
+  if (target) target.scrollIntoView({ block: "start" });
+}
+
+function updateProgress(index) {
+  const normalizedIndex = Math.max(0, Math.min(modules.length, Number(index)));
+  state.activeModuleIndex = normalizedIndex;
+  const label = app.querySelector("[data-progress-label]");
+  const activeModule = modules[normalizedIndex];
+
+  if (label) {
+    label.textContent = activeModule
+      ? `Section ${normalizedIndex + 1} of ${modules.length}: ${activeModule.title}`
+      : "Closing";
+  }
+
+  app.querySelectorAll("[data-progress-index]").forEach((step) => {
+    const stepIndex = Number(step.dataset.progressIndex);
+    step.classList.toggle("is-active", stepIndex === normalizedIndex);
+    step.classList.toggle("is-past", stepIndex < normalizedIndex);
+  });
+}
+
+function initializeImageFallbacks() {
+  app.querySelectorAll("img[data-fallback]").forEach((image) => {
+    image.addEventListener("error", () => {
+      if (image.dataset.failedFallback === "true") return;
+      image.dataset.failedFallback = "true";
+      image.src = image.dataset.fallback || fallbackImage;
+    });
+  });
+}
+
+function initializeObservers() {
+  const animatedItems = app.querySelectorAll(".reveal-on-scroll");
+  const sections = app.querySelectorAll("[data-observed-section]");
+  const timelineTrigger = app.querySelector("[data-timeline-trigger]");
+
+  if (typeof window.IntersectionObserver !== "function") {
+    animatedItems.forEach((item) => item.classList.add("is-visible"));
+    return;
+  }
+
+  const animationObserver = new window.IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          animationObserver.unobserve(entry.target);
+        }
+      });
+    },
+    { rootMargin: "0px 0px -12% 0px", threshold: 0.14 }
+  );
+
+  animatedItems.forEach((item) => animationObserver.observe(item));
+
+  const sectionObserver = new window.IntersectionObserver(
+    (entries) => {
+      const visible = entries
+        .filter((entry) => entry.isIntersecting)
+        .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+
+      if (visible) {
+        updateProgress(Number(visible.target.dataset.moduleIndex));
+      }
+    },
+    { rootMargin: "-28% 0px -52% 0px", threshold: [0.12, 0.3, 0.6] }
+  );
+
+  sections.forEach((section) => sectionObserver.observe(section));
+
+  if (timelineTrigger) {
+    const hiddenTimelineObserver = new window.IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setHiddenTimeline(true);
+            hiddenTimelineObserver.unobserve(entry.target);
+          }
+        });
+      },
+      { rootMargin: "0px 0px -34% 0px", threshold: 0.5 }
+    );
+
+    hiddenTimelineObserver.observe(timelineTrigger);
+  }
 }
 
 app.addEventListener("click", (event) => {
   const actionTarget = event.target.closest("[data-action]");
-  const choiceTarget = event.target.closest("[data-choice]");
-  const roomTarget = event.target.closest("[data-room]");
-
-  if (choiceTarget && !state.holding) {
-    state.selectedChoiceId = choiceTarget.dataset.choice;
-    render();
-    return;
-  }
-
-  if (roomTarget) {
-    goToRoom(Number(roomTarget.dataset.room));
-    return;
-  }
-
   if (!actionTarget) return;
 
   const action = actionTarget.dataset.action;
-  if (action === "begin") begin();
-  if (action === "to-choice") {
-    state.screen = "choice";
-    state.selectedChoiceId = state.lockedChoices[currentModule().id] || null;
-    render();
+  if (action === "go-to") {
+    event.preventDefault();
+    goTo(actionTarget.dataset.target);
   }
-  if (action === "lock") lockChoice();
-  if (action === "toggle-notes") {
-    state.notesOpen = !state.notesOpen;
-    render();
+  if (action === "set-layer") {
+    updateCaveLayer(actionTarget.dataset.layer);
   }
-  if (action === "next-room") nextRoom();
-  if (action === "to-final") {
-    state.view = "final";
-    render();
+  if (action === "advance-provenance") {
+    advanceProvenance();
   }
-  if (action === "resume") resume();
+  if (action === "toggle-hidden-timeline") {
+    setHiddenTimeline(!state.hiddenTimelineOpen);
+  }
+});
+
+app.addEventListener("input", (event) => {
+  const slider = event.target.closest("[data-action='wwii-slider']");
+  if (slider) updateWwiiTimeline(slider.value);
 });
 
 document.addEventListener("keydown", (event) => {
-  if (state.view !== "module" || state.screen !== "choice" || state.holding) return;
+  const layerControls = event.target.closest(".layer-controls");
+  if (!layerControls) return;
 
-  const module = currentModule();
-  const currentIndex = module.choices.findIndex((choice) => choice.id === state.selectedChoiceId);
+  const buttons = [...layerControls.querySelectorAll("[data-layer]")];
+  const currentIndex = buttons.findIndex((button) => button.dataset.layer === state.caveLayer);
+  let nextIndex = currentIndex;
 
-  if (event.key === "ArrowDown" || event.key === "ArrowRight") {
-    event.preventDefault();
-    const nextIndex = currentIndex < 0 ? 0 : (currentIndex + 1) % module.choices.length;
-    state.selectedChoiceId = module.choices[nextIndex].id;
-    render();
+  if (event.key === "ArrowRight" || event.key === "ArrowDown") {
+    nextIndex = (currentIndex + 1) % buttons.length;
+  } else if (event.key === "ArrowLeft" || event.key === "ArrowUp") {
+    nextIndex = currentIndex <= 0 ? buttons.length - 1 : currentIndex - 1;
+  } else {
+    return;
   }
 
-  if (event.key === "ArrowUp" || event.key === "ArrowLeft") {
-    event.preventDefault();
-    const nextIndex = currentIndex <= 0 ? module.choices.length - 1 : currentIndex - 1;
-    state.selectedChoiceId = module.choices[nextIndex].id;
-    render();
-  }
-
-  if (event.key === "Enter" && state.selectedChoiceId) {
-    event.preventDefault();
-    lockChoice();
-  }
+  event.preventDefault();
+  buttons[nextIndex].focus();
+  updateCaveLayer(buttons[nextIndex].dataset.layer);
 });
 
 window.addEventListener("hashchange", () => {
-  readHash();
-  render();
+  const targetId = window.location.hash.replace("#", "");
+  const index = modules.findIndex((module) => module.id === targetId);
+  if (index >= 0) updateProgress(index);
+  if (targetId === "final") updateProgress(modules.length);
 });
 
-readHash();
 render();

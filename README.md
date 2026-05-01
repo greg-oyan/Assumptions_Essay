@@ -1,6 +1,8 @@
 # Assumptions_Essay
 
-A public writing workspace and standalone interactive essay about assumptions: how they form, how they shape decisions, and how to notice when they are doing more work than the evidence.
+A public writing workspace and standalone interactive essay called `What Do You See?`
+
+The core idea: we inherit pictures of the past, then mistake the picture for the evidence.
 
 ## Purpose
 
@@ -21,9 +23,19 @@ This repository is set up to support the full essay process, from early notes th
 
 ## App
 
-Open `index.html` in a browser to run the current prototype.
+Open `index.html` in a browser to run the current essay.
 
-The app is intentionally static and data-driven so it can ship cleanly on GitHub Pages. Each room uses the same component and is powered by module data in `app.js`.
+The app is intentionally static and data-driven so it can ship cleanly on GitHub Pages. Each section is powered by module data in `app.js`, with source notes and image metadata kept near the content they support.
+
+Current structure:
+
+- Cover
+- Cave Paintings
+- Wild West
+- WWII Contribution
+- Titanic
+- Renaissance
+- Closing screen
 
 ## Working Method
 
@@ -35,4 +47,4 @@ The app is intentionally static and data-driven so it can ship cleanly on GitHub
 
 ## Status
 
-Initial project scaffold. The first essay outline and draft will be added next.
+Full structural pass built. Remaining work is mostly Greg's voice pass, final source polish, and the real Substack URL.
