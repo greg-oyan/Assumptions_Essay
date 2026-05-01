@@ -1,0 +1,13 @@
+# OS and editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Temporary writing artifacts
+~$*
+*.tmp
+*.bak
+
+# Local exports
+exports/
