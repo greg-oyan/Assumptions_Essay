@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@800;900&display=swap");
+
 :root {
   color-scheme: light;
   --paper: #f8f3ea;
@@ -90,19 +92,27 @@ button,
 }
 
 .cover {
+  position: relative;
   min-height: 100vh;
   min-height: 100svh;
   display: grid;
   align-items: center;
-  padding: 7rem 1.25rem 5rem;
+  justify-items: center;
+  padding: 5rem 1.25rem 6rem;
   background:
-    linear-gradient(rgba(248, 243, 234, 0.86), rgba(248, 243, 234, 0.98)),
-    url("assets/placeholders/cave-paintings.svg") center / cover;
+    radial-gradient(circle at 52% 35%, rgba(255, 246, 229, 0.18), transparent 22rem),
+    linear-gradient(180deg, rgba(7, 6, 5, 0.32) 0%, rgba(7, 6, 5, 0.58) 48%, rgba(7, 6, 5, 0.86) 100%),
+    url("https://upload.wikimedia.org/wikipedia/commons/1/1e/Lascaux_painting.jpg") center / cover;
+  background-color: #15110d;
 }
 
 .cover-inner {
-  width: min(62rem, 100%);
-  margin: 0 auto;
+  width: min(78rem, 100%);
+  margin: -4vh auto 0;
+  display: grid;
+  justify-items: center;
+  gap: 2.15rem;
+  text-align: center;
 }
 
 .eyebrow {
@@ -114,11 +124,20 @@ button,
 }
 
 .cover h1 {
-  max-width: 10ch;
+  max-width: 9.5ch;
   margin: 0;
-  font-size: 4rem;
-  line-height: 0.92;
-  font-weight: 720;
+  color: #fff8ec;
+  font-family:
+    "Playfair Display",
+    Georgia,
+    Cambria,
+    "Times New Roman",
+    Times,
+    serif;
+  font-size: 4.6rem;
+  line-height: 0.86;
+  font-weight: 900;
+  text-shadow: 0 0.35rem 2.4rem rgba(0, 0, 0, 0.48);
 }
 
 .cover-copy {
@@ -157,6 +176,49 @@ button,
 
 .button:hover {
   background: var(--ink-soft);
+}
+
+.cover .button {
+  min-height: 2.45rem;
+  padding: 0.58rem 1.05rem;
+  border-color: rgba(255, 248, 236, 0.72);
+  background: rgba(7, 6, 5, 0.12);
+  color: #fff8ec;
+  font-size: 0.9rem;
+  backdrop-filter: blur(10px);
+}
+
+.cover .button:hover {
+  border-color: #fff8ec;
+  background: rgba(255, 248, 236, 0.13);
+}
+
+.scroll-cue {
+  position: absolute;
+  left: 50%;
+  bottom: 1.4rem;
+  display: grid;
+  justify-items: center;
+  gap: 0.45rem;
+  color: rgba(255, 248, 236, 0.7);
+  font-family:
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  transform: translateX(-50%);
+}
+
+.scroll-chevron {
+  width: 0.62rem;
+  height: 0.62rem;
+  border-right: 1px solid currentColor;
+  border-bottom: 1px solid currentColor;
+  transform: rotate(45deg);
 }
 
 .topbar {
@@ -446,7 +508,7 @@ button,
 }
 
 .provenance-copy h4,
-.comparison-column h4,
+.comparison-panel h4,
 .hidden-events h4 {
   margin: 0;
   color: var(--ink);
@@ -463,7 +525,7 @@ button,
 
 .provenance-copy p,
 .provenance-copy li,
-.comparison-column p,
+.comparison-panel p,
 .hidden-events p,
 .source-inline {
   margin: 0;
@@ -554,16 +616,42 @@ button,
   color: var(--quiet);
 }
 
-.comparison-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1.2rem;
+.comparison-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-bottom: 1rem;
 }
 
-.comparison-column {
+.comparison-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.7rem;
+  padding: 0.68rem 0.92rem;
+  border: 1px solid var(--line-strong);
+  border-radius: 6px;
+  background: transparent;
+  color: var(--ink);
+  cursor: pointer;
+  transition:
+    background 180ms ease,
+    border-color 180ms ease,
+    color 180ms ease;
+}
+
+.comparison-button:hover,
+.comparison-button.is-active {
+  border-color: var(--charcoal);
+  background: var(--charcoal);
+  color: var(--paper);
+}
+
+.comparison-panel {
   display: grid;
   align-content: start;
   gap: 0.7rem;
+  min-height: 13rem;
   padding: 1.1rem 0 0;
   border-top: 3px solid var(--line-strong);
 }
@@ -767,6 +855,7 @@ button,
 
 .button:focus-visible,
 .layer-button:focus-visible,
+.comparison-button:focus-visible,
 .provenance-image-button:focus-visible,
 .dark-age-bar:focus-visible,
 .track-step:focus-visible,
@@ -780,7 +869,7 @@ button,
 
 @media (min-width: 900px) {
   .cover h1 {
-    font-size: 8rem;
+    font-size: 9.4rem;
   }
 
   .module-section {
@@ -818,8 +907,7 @@ button,
     gap: 0.75rem;
   }
 
-  .provenance-stage,
-  .comparison-grid {
+  .provenance-stage {
     grid-template-columns: 1fr;
   }
 
@@ -861,7 +949,7 @@ button,
   }
 
   .cover h1 {
-    font-size: 3.45rem;
+    font-size: 4rem;
   }
 
   .cover-copy p,
@@ -888,11 +976,13 @@ button,
   }
 
   .button,
-  .layer-button {
+  .layer-button,
+  .comparison-button {
     width: 100%;
   }
 
-  .layer-controls {
+  .layer-controls,
+  .comparison-controls {
     display: grid;
     grid-template-columns: 1fr;
   }

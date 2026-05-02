@@ -15,55 +15,49 @@ const modules = [
     },
     sections: [
       {
-        title: "The picture you carry",
-        body:
-          "When most of us hear cave painting, we picture cavemen. Not just the painters, but the whole world they lived in. Rough people. Crude people. Humans at the very beginning of becoming what we are now."
-      },
-      {
-        title: "What the record shows",
-        body:
-          "The people who made these paintings had human brains, human hands, and human skill. They made tools, cooked food, lived in groups, traded materials, buried their dead, and made art that took real practice. That does not prove they were gentle or noble. It just means the cartoon version is doing more work than the evidence."
-      },
-      {
-        title: "What the picture leaves out",
-        body:
-          "We do not know their inner lives. We do not know what these paintings were for. We do not know whether this was hunting, ritual, teaching, memory, play, family, or something we no longer have categories for. Chesterton's nursery-wall idea matters because it breaks the spell. It does not prove the cave was a nursery. It asks why savage cave felt obvious before human home did."
+        title: "What comes to mind when you think of Cavemen?",
+        body: [
+          "We picture barbarians, slower and cruder, somewhere far back on the road to becoming what we are now. Modern culture reinforces it: cavemen were brutes, cave paintings were the peak of their artistic capacity, and they grunted around campfires between mammoth hunts. That picture is so familiar it feels like evidence, but is it?",
+          "Take cave paintings. What we actually have is not barbarism. What we do have is art. We see depictions of animals drawn by people who watched them closely and worked carefully. Pigments, planning, technique, and imagination liven the cave walls. None of that proves the painters were gentle, or noble, or anything like us, but it is also not like the cartoons we remember from childhood.",
+          "G.K. Chesterton, a Christian writer from the early 20th century, made the point better than almost anyone. He said the atmosphere of the cave could just as easily feel like a nursery as a savage hunting lodge. Not because he knew it was a nursery, but because the nursery image exposes the assumption. Why did we imagine brutes before we imagined parents, children, memory, play, or home?",
+          "The cave does not force the barbarian picture. We inherited that picture, and once you see that an assumption as foundational as barbaric cavemen comes naturally to you, you may start to wonder what other assumptions you hold that are not necessarily based on good evidence."
+        ]
       }
     ],
-    closingLine: "The painting did not change. The people did not change. The picture did.",
+    closingLine: "The Cave did not change. The frame did.",
     interaction: {
       type: "layers",
       intro:
-        "The same evidence can receive more than one frame. None of these layers is presented as the answer.",
+        "The same wall can be interpreted in more than one way.",
       layers: [
         {
           id: "hunters",
           label: "Hunters",
           caption: "A hunting frame turns the wall into practice, memory, pursuit, and animal knowledge.",
           annotations: [
-            { x: 19, y: 42, label: "Animal movement" },
-            { x: 38, y: 36, label: "Knowledge of bodies" },
-            { x: 68, y: 54, label: "Practice before pursuit" }
+            { x: 46, y: 66, label: "Animal movement" },
+            { x: 18, y: 43, label: "Knowledge of bodies" },
+            { x: 57, y: 73, label: "Practice before permanence" }
           ]
         },
         {
           id: "family",
           label: "Family home",
-          caption: "A home frame asks what changes if these are not crude marks, but images in a human place.",
+          caption: "A family-home frame turns the wall into teaching, affection, memory, play, and the ordinary life of human beings.",
           annotations: [
-            { x: 27, y: 34, label: "Recognition and teaching" },
-            { x: 52, y: 48, label: "A wall people returned to" },
-            { x: 82, y: 30, label: "Presence, not distance" }
+            { x: 42, y: 67, label: "Memory and play" },
+            { x: 25, y: 48, label: "Familiar animals" },
+            { x: 70, y: 41, label: "Comfort" }
           ]
         },
         {
           id: "sacred",
           label: "Sacred space",
-          caption: "A sacred frame turns the cave into a threshold, where image, animal, place, and ritual meet.",
+          caption: "A sacred-space frame turns the wall into reverence, ritual, memory, and meanings we may no longer know how to read.",
           annotations: [
-            { x: 14, y: 18, label: "A charged place" },
-            { x: 56, y: 42, label: "Image as passage" },
-            { x: 78, y: 66, label: "Meaning withheld" }
+            { x: 70, y: 20, label: "Ritual and reverence" },
+            { x: 55, y: 34, label: "A place set apart" },
+            { x: 34, y: 54, label: "Memory made sacred" }
           ]
         }
       ]
@@ -100,19 +94,12 @@ const modules = [
     },
     sections: [
       {
-        title: "The picture you carry",
-        body:
-          "Most of us picture the Wild West through movies. Dusty streets, saloons, gunfights, sheriffs, outlaws, and a town that could turn violent at any moment. The frontier becomes the place where civilization has not quite arrived yet."
-      },
-      {
-        title: "What the record shows",
-        body:
-          "Some towns were violent. Some people were dangerous. But much of frontier life was ordinary work. Cattle, farms, freight, weather, debt, court records, local rules, and long stretches of boredom. Many towns had gun restrictions. The famous cattle-drive era was short. Many cowboys were young men doing hard, low-paid work."
-      },
-      {
-        title: "What the picture leaves out",
-        body:
+        title: "What comes to mind when you think of the Wild West?",
+        body: [
+          "Most of us picture the Wild West through movies. Dusty streets, saloons, gunfights, sheriffs, outlaws, and a town that could turn violent at any moment. The frontier becomes the place where civilization has not quite arrived yet.",
+          "Some towns were violent. Some people were dangerous. But much of frontier life was ordinary work. Cattle, farms, freight, weather, debt, court records, local rules, and long stretches of boredom. Many towns had gun restrictions. The famous cattle-drive era was short. Many cowboys were young men doing hard, low-paid work.",
           "Violence made the best stories, so violence became the picture. Dime novels, touring shows, advertising, and Hollywood did not invent the frontier, but they taught later generations how to imagine it. Gunfights survive in memory better than cattle prices, town ordinances, and paperwork."
+        ]
       }
     ],
     closingLine: "The frontier did not change. The picture did.",
@@ -224,19 +211,12 @@ const modules = [
     },
     sections: [
       {
-        title: "The picture you carry",
-        body:
-          "Ask many Americans today who did the most to defeat Nazi Germany and the answer feels almost automatic. America. Maybe the Allies if they are being careful. The images are D-Day, GIs liberating villages, and the Greatest Generation."
-      },
-      {
-        title: "What the record shows",
-        body:
-          "More than one story has real evidence behind it. The Soviet Union paid an almost unimaginable human cost and destroyed most of Germany's army on the Eastern Front. The United States supplied enormous industrial power, equipment, soldiers, and helped finish the war. Britain endured, fought, and held the line before America entered. None of these facts cancels the others."
-      },
-      {
-        title: "What the picture leaves out",
-        body:
+        title: "What comes to mind when you think of World War II?",
+        body: [
+          "Ask many Americans today who did the most to defeat Nazi Germany and the answer feels almost automatic. America. Maybe the Allies if they are being careful. The images are D-Day, GIs liberating villages, and the Greatest Generation.",
+          "More than one story has real evidence behind it. The Soviet Union paid an almost unimaginable human cost and destroyed most of Germany's army on the Eastern Front. The United States supplied enormous industrial power, equipment, soldiers, and helped finish the war. Britain endured, fought, and held the line before America entered. None of these facts cancels the others.",
           "Public memory has changed over time. Earlier postwar polling in France gave far more credit to the Soviet Union than people usually do now. Later, the Cold War, movies, textbooks, national memory, and politics changed the picture. The question of who won the war partly depends on what you measure, and partly on the generation and country answering it."
+        ]
       }
     ],
     closingLine: "The war did not change. The memory did.",
@@ -286,19 +266,12 @@ const modules = [
     },
     sections: [
       {
-        title: "The picture you carry",
-        body:
-          "The Titanic story comes to us as a moral one. The unsinkable ship, brought down by human arrogance. Pride, then ice, then the sea. The disaster becomes a parable about hubris."
-      },
-      {
-        title: "What the record shows",
-        body:
-          "The ship had too few lifeboats for everyone aboard, but it complied with the regulations of the time. Ice warnings were received, but such warnings were common on the route. The ship was moving fast, but not in a way that was obviously strange for the era. Weather and sea conditions made the iceberg harder to see."
-      },
-      {
-        title: "What the picture leaves out",
-        body:
+        title: "What comes to mind when you think of Titanic?",
+        body: [
+          "The Titanic story comes to us as a moral one. The unsinkable ship, brought down by human arrogance. Pride, then ice, then the sea. The disaster becomes a parable about hubris.",
+          "The ship had too few lifeboats for everyone aboard, but it complied with the regulations of the time. Ice warnings were received, but such warnings were common on the route. The ship was moving fast, but not in a way that was obviously strange for the era. Weather and sea conditions made the iceberg harder to see.",
           "The famous line about God not being able to sink the ship became powerful after the disaster, when people needed the event to mean something. The sinking was not only a morality play. It was also a chain of ordinary human decisions, outdated rules, class arrangements, assumptions, and bad luck. The moral story came later because disaster is hard to leave as disaster."
+        ]
       }
     ],
     closingLine: "The ship did not change. The story did.",
@@ -362,19 +335,12 @@ const modules = [
     },
     sections: [
       {
-        title: "The picture you carry",
-        body:
-          "The Renaissance is usually told as a clean break. First the Dark Ages, then light. Art, science, humanism, and Europe waking up after a long sleep."
-      },
-      {
-        title: "What the record shows",
-        body:
-          "Medieval Europe already had universities, theology, trade, art, mathematics, engineering, and contact with classical and Islamic learning. Bologna, Paris, and Oxford were active well before the period most people call the Renaissance. Gothic cathedrals, scholastic philosophy, clocks, eyeglasses, Dante, Aquinas, and translation movements all complicate the darkness story."
-      },
-      {
-        title: "What the picture leaves out",
-        body:
+        title: "What comes to mind when you think of the Renaissance?",
+        body: [
+          "The Renaissance is usually told as a clean break. First the Dark Ages, then light. Art, science, humanism, and Europe waking up after a long sleep.",
+          "Medieval Europe already had universities, theology, trade, art, mathematics, engineering, and contact with classical and Islamic learning. Bologna, Paris, and Oxford were active well before the period most people call the Renaissance. Gothic cathedrals, scholastic philosophy, clocks, eyeglasses, Dante, Aquinas, and translation movements all complicate the darkness story.",
           "The Renaissance was real, but it was slower and messier than the story suggests. Money, patrons, cities, trade, printing, recovered texts, and institutions all mattered. The label came later. Darkness, then light is easier to remember than gradual accumulation, so the cleaner picture survived."
+        ]
       }
     ],
     closingLine: "The era did not change. The label did.",
@@ -466,6 +432,7 @@ const state = {
   provenanceIndex: 0,
   revealedProvenance: {},
   wwiiPosition: 0,
+  titanicComparisonIndex: 0,
   hiddenTimelineOpen: false
 };
 
@@ -486,13 +453,12 @@ function renderCover() {
   return `
     <section id="cover" class="cover">
       <div class="cover-inner">
-        <p class="eyebrow">Five experiments in the stories we inherit</p>
         <h1>What Do You See?</h1>
-        <div class="cover-copy">
-          <p>I'm going to show you five pictures from history. For each one, I'll show you what the record says, what it does not settle, and where the picture in your head probably came from.</p>
-          <p>The point isn't that you're wrong. The point is that the picture came from somewhere, and it's worth knowing where.</p>
-        </div>
         <button class="button primary" type="button" data-action="go-to" data-target="caves">Begin</button>
+      </div>
+      <div class="scroll-cue" aria-hidden="true">
+        <span>scroll</span>
+        <span class="scroll-chevron"></span>
       </div>
     </section>
   `;
@@ -545,7 +511,9 @@ function renderTextSections(module) {
       ${module.sections.map((section) => `
         <section class="essay-block reveal-on-scroll">
           <h3>${escapeHtml(section.title)}</h3>
-          <p>${escapeHtml(section.body)}</p>
+          ${Array.isArray(section.body)
+            ? section.body.map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join("")
+            : `<p>${escapeHtml(section.body)}</p>`}
         </section>
       `).join("")}
     </div>
@@ -586,45 +554,50 @@ function renderLayerInteraction(module) {
   `;
 }
 
-function renderProvenanceInteraction(module) {
+function renderProvenanceStage(module) {
   const item = module.interaction.items[state.provenanceIndex];
   const isRevealed = Boolean(state.revealedProvenance[item.id]);
   const position = `${state.provenanceIndex + 1} of ${module.interaction.items.length}`;
+  return `
+    <div class="provenance-stage" data-provenance-stage>
+      <p class="provenance-count">${escapeHtml(position)}</p>
+      <button
+        class="provenance-image-button"
+        type="button"
+        data-action="advance-provenance"
+        aria-label="${isRevealed ? "Show next provenance image" : "Reveal provenance for this image"}"
+      >
+        <img
+          src="${escapeHtml(item.image.url)}"
+          data-fallback="${escapeHtml(item.image.fallback)}"
+          alt="${escapeHtml(item.image.alt)}"
+          loading="lazy"
+        >
+      </button>
+      <div class="provenance-copy">
+        <h4>${escapeHtml(item.label)}</h4>
+        ${isRevealed ? `
+          <ul>
+            ${item.provenance.map((line) => `<li>${escapeHtml(line)}</li>`).join("")}
+          </ul>
+          <p><a href="${escapeHtml(item.image.sourceUrl)}">${escapeHtml(item.image.title)}</a>. ${escapeHtml(item.image.license)}.</p>
+          <p class="quiet-note">Tap the image again for the next example.</p>
+        ` : `
+          <p class="quiet-note">Tap the image to reveal its source, year, and original context.</p>
+        `}
+      </div>
+    </div>
+  `;
+}
 
+function renderProvenanceInteraction(module) {
   return `
     <section class="interaction provenance-interaction reveal-on-scroll" aria-labelledby="${escapeHtml(module.id)}-interaction-title">
       <div class="interaction-intro">
         <h3 id="${escapeHtml(module.id)}-interaction-title">Image provenance</h3>
         <p>${escapeHtml(module.interaction.intro)}</p>
       </div>
-      <div class="provenance-stage" data-provenance-stage>
-        <p class="provenance-count">${escapeHtml(position)}</p>
-        <button
-          class="provenance-image-button"
-          type="button"
-          data-action="advance-provenance"
-          aria-label="${isRevealed ? "Show next provenance image" : "Reveal provenance for this image"}"
-        >
-          <img
-            src="${escapeHtml(item.image.url)}"
-            data-fallback="${escapeHtml(item.image.fallback)}"
-            alt="${escapeHtml(item.image.alt)}"
-            loading="lazy"
-          >
-        </button>
-        <div class="provenance-copy">
-          <h4>${escapeHtml(item.label)}</h4>
-          ${isRevealed ? `
-            <ul>
-              ${item.provenance.map((line) => `<li>${escapeHtml(line)}</li>`).join("")}
-            </ul>
-            <p><a href="${escapeHtml(item.image.sourceUrl)}">${escapeHtml(item.image.title)}</a>. ${escapeHtml(item.image.license)}.</p>
-            <p class="quiet-note">Tap the image again for the next example.</p>
-          ` : `
-            <p class="quiet-note">Tap the image to reveal its source, year, and original context.</p>
-          `}
-        </div>
-      </div>
+      ${renderProvenanceStage(module)}
     </section>
   `;
 }
@@ -659,7 +632,7 @@ function renderTimelineInteraction(module) {
         type="range"
         min="0"
         max="${points.length - 1}"
-        step="0.01"
+        step="1"
         value="${state.wwiiPosition}"
         data-action="wwii-slider"
       >
@@ -671,6 +644,26 @@ function renderTimelineInteraction(module) {
   `;
 }
 
+function renderComparisonPanel(module) {
+  const columns = module.interaction.columns;
+  const index = Math.max(0, Math.min(columns.length - 1, state.titanicComparisonIndex));
+  const column = columns[index];
+
+  return `
+    <article
+      class="comparison-panel"
+      id="${escapeHtml(module.id)}-comparison-panel"
+      data-comparison-panel
+      aria-live="polite"
+    >
+      <p class="comparison-kicker">${escapeHtml(column.kicker)}</p>
+      <h4>${escapeHtml(column.title)}</h4>
+      <p>${escapeHtml(column.body)}</p>
+      <a href="${escapeHtml(column.sourceUrl)}">${escapeHtml(column.sourceTitle)}</a>
+    </article>
+  `;
+}
+
 function renderComparisonInteraction(module) {
   return `
     <section class="interaction comparison-interaction reveal-on-scroll" aria-labelledby="${escapeHtml(module.id)}-interaction-title">
@@ -678,16 +671,20 @@ function renderComparisonInteraction(module) {
         <h3 id="${escapeHtml(module.id)}-interaction-title">Two kinds of language</h3>
         <p>${escapeHtml(module.interaction.intro)}</p>
       </div>
-      <div class="comparison-grid">
-        ${module.interaction.columns.map((column) => `
-          <article class="comparison-column">
-            <p class="comparison-kicker">${escapeHtml(column.kicker)}</p>
-            <h4>${escapeHtml(column.title)}</h4>
-            <p>${escapeHtml(column.body)}</p>
-            <a href="${escapeHtml(column.sourceUrl)}">${escapeHtml(column.sourceTitle)}</a>
-          </article>
+      <div class="comparison-controls" role="tablist" aria-label="Titanic language comparison">
+        ${module.interaction.columns.map((column, index) => `
+          <button
+            class="comparison-button ${index === state.titanicComparisonIndex ? "is-active" : ""}"
+            type="button"
+            role="tab"
+            aria-selected="${index === state.titanicComparisonIndex ? "true" : "false"}"
+            aria-controls="${escapeHtml(module.id)}-comparison-panel"
+            data-action="set-comparison-view"
+            data-comparison-index="${index}"
+          >${escapeHtml(column.title)}</button>
         `).join("")}
       </div>
+      ${renderComparisonPanel(module)}
     </section>
   `;
 }
@@ -703,7 +700,7 @@ function renderHiddenTimelineInteraction(module) {
         class="dark-age-bar ${state.hiddenTimelineOpen ? "is-open" : ""}"
         type="button"
         data-action="toggle-hidden-timeline"
-        data-timeline-trigger
+        data-hidden-timeline-bar
         aria-expanded="${state.hiddenTimelineOpen ? "true" : "false"}"
       >
         <span>${escapeHtml(module.interaction.label)}</span>
@@ -762,7 +759,7 @@ function renderModule(module, index) {
         ${renderImage(module.image)}
         ${renderTextSections(module)}
         ${renderInteraction(module)}
-        <p class="closing-line reveal-on-scroll">${escapeHtml(module.closingLine)}</p>
+        ${module.closingLine ? `<p class="closing-line reveal-on-scroll">${escapeHtml(module.closingLine)}</p>` : ""}
         ${renderSources(module)}
       </div>
     </section>
@@ -855,6 +852,9 @@ function updateCaveLayer(layerId) {
 function advanceProvenance() {
   const west = modules.find((module) => module.id === "west");
   const item = west.interaction.items[state.provenanceIndex];
+  const stage = app.querySelector("[data-provenance-stage]");
+  const scrollLeft = window.scrollX;
+  const scrollTop = window.scrollY;
 
   if (!state.revealedProvenance[item.id]) {
     state.revealedProvenance[item.id] = true;
@@ -862,29 +862,28 @@ function advanceProvenance() {
     state.provenanceIndex = (state.provenanceIndex + 1) % west.interaction.items.length;
   }
 
-  render();
+  if (stage) {
+    stage.outerHTML = renderProvenanceStage(west);
+    initializeImageFallbacks();
+    window.scrollTo(scrollLeft, scrollTop);
+  }
 }
 
-function interpolateTimeline(position) {
+function getTimelinePoint(position) {
   const points = getWwiiModule().interaction.data;
-  const clamped = Math.max(0, Math.min(points.length - 1, Number(position)));
-  const lowerIndex = Math.floor(clamped);
-  const upperIndex = Math.min(points.length - 1, Math.ceil(clamped));
-  const lower = points[lowerIndex];
-  const upper = points[upperIndex];
-  const ratio = upperIndex === lowerIndex ? 0 : clamped - lowerIndex;
+  const index = Math.max(0, Math.min(points.length - 1, Math.round(Number(position))));
+  const point = points[index];
 
   return {
-    year: Math.round(lower.year + (upper.year - lower.year) * ratio),
-    usa: Math.round(lower.usa + (upper.usa - lower.usa) * ratio),
-    ussr: Math.round(lower.ussr + (upper.ussr - lower.ussr) * ratio),
-    progress: (clamped / (points.length - 1)) * 100
+    ...point,
+    index,
+    progress: (index / (points.length - 1)) * 100
   };
 }
 
 function updateWwiiTimeline(position) {
-  state.wwiiPosition = Number(position);
-  const values = interpolateTimeline(position);
+  const values = getTimelinePoint(position);
+  state.wwiiPosition = values.index;
   const slider = app.querySelector("[data-action='wwii-slider']");
   const year = app.querySelector("[data-wwii-year]");
   const usa = app.querySelector("[data-wwii-usa]");
@@ -899,9 +898,29 @@ function updateWwiiTimeline(position) {
   if (ussr) ussr.textContent = `${values.ussr}%`;
 }
 
+function setComparisonView(index) {
+  const titanic = modules.find((module) => module.id === "titanic");
+  const columns = titanic.interaction.columns;
+  const scrollLeft = window.scrollX;
+  const scrollTop = window.scrollY;
+  state.titanicComparisonIndex = Math.max(0, Math.min(columns.length - 1, Number(index)));
+  const panel = app.querySelector("[data-comparison-panel]");
+
+  app.querySelectorAll("[data-comparison-index]").forEach((button) => {
+    const isActive = Number(button.dataset.comparisonIndex) === state.titanicComparisonIndex;
+    button.classList.toggle("is-active", isActive);
+    button.setAttribute("aria-selected", String(isActive));
+  });
+
+  if (panel) {
+    panel.outerHTML = renderComparisonPanel(titanic);
+    window.scrollTo(scrollLeft, scrollTop);
+  }
+}
+
 function setHiddenTimeline(open) {
   state.hiddenTimelineOpen = open;
-  const bar = app.querySelector("[data-timeline-trigger]");
+  const bar = app.querySelector("[data-hidden-timeline-bar]");
   const events = app.querySelector("[data-hidden-events]");
 
   if (bar) {
@@ -963,7 +982,6 @@ function initializeImageFallbacks() {
 function initializeObservers() {
   const animatedItems = app.querySelectorAll(".reveal-on-scroll");
   const sections = app.querySelectorAll("[data-observed-section]");
-  const timelineTrigger = app.querySelector("[data-timeline-trigger]");
 
   if (typeof window.IntersectionObserver !== "function") {
     animatedItems.forEach((item) => item.classList.add("is-visible"));
@@ -998,22 +1016,6 @@ function initializeObservers() {
   );
 
   sections.forEach((section) => sectionObserver.observe(section));
-
-  if (timelineTrigger) {
-    const hiddenTimelineObserver = new window.IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setHiddenTimeline(true);
-            hiddenTimelineObserver.unobserve(entry.target);
-          }
-        });
-      },
-      { rootMargin: "0px 0px -34% 0px", threshold: 0.5 }
-    );
-
-    hiddenTimelineObserver.observe(timelineTrigger);
-  }
 }
 
 app.addEventListener("click", (event) => {
@@ -1031,8 +1033,11 @@ app.addEventListener("click", (event) => {
   if (action === "advance-provenance") {
     advanceProvenance();
   }
+  if (action === "set-comparison-view") {
+    setComparisonView(actionTarget.dataset.comparisonIndex);
+  }
   if (action === "toggle-hidden-timeline") {
-    setHiddenTimeline(!state.hiddenTimelineOpen);
+    setHiddenTimeline(true);
   }
 });
 
