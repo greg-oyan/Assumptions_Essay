@@ -35,24 +35,21 @@ const modules = [
           label: "Hunters",
           caption: "A hunting frame turns the wall into practice, memory, pursuit, and animal knowledge.",
           overlayImage: "assets/cave-overlays/hunters.png",
-          overlayAlt: "Hunters standing in the cave foreground, studying the painted wall.",
-          overlayHeight: "38%"
+          overlayAlt: "Hunters standing in the cave foreground, studying the painted wall."
         },
         {
           id: "family",
           label: "Family home",
           caption: "A family-home frame turns the wall into teaching, affection, memory, play, and the ordinary life of human beings.",
           overlayImage: "assets/cave-overlays/family.png",
-          overlayAlt: "A family group in the cave foreground, adults and children together.",
-          overlayHeight: "33%"
+          overlayAlt: "A family group in the cave foreground, adults and children together."
         },
         {
           id: "sacred",
           label: "Sacred space",
           caption: "A sacred-space frame turns the wall into reverence, ritual, memory, and meanings we may no longer know how to read.",
           overlayImage: "assets/cave-overlays/sacred.png",
-          overlayAlt: "Two figures in the cave foreground, still and apart, facing the wall.",
-          overlayHeight: "45%"
+          overlayAlt: "Two figures in the cave foreground, still and apart, facing the wall."
         }
       ]
     },
@@ -576,7 +573,7 @@ function renderLayerInteraction(module) {
             alt="${escapeHtml(module.image.alt)}"
             loading="lazy"
           >
-          <img data-cave-overlay class="cave-overlay" alt="">
+          <img data-cave-overlay class="cave-overlay" data-layer="${escapeHtml(state.caveLayer)}" alt="">
         </div>
         <figcaption data-layer-caption></figcaption>
       </figure>
@@ -892,7 +889,7 @@ function updateCaveLayer(layerId) {
   if (overlay) {
     overlay.src = layer.overlayImage;
     overlay.alt = layer.overlayAlt;
-    overlay.style.height = layer.overlayHeight || "";
+    overlay.setAttribute("data-layer", layerId);
   }
 
   if (caption) {
