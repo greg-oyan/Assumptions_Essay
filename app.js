@@ -34,31 +34,25 @@ const modules = [
           id: "hunters",
           label: "Hunters",
           caption: "A hunting frame turns the wall into practice, memory, pursuit, and animal knowledge.",
-          annotations: [
-            { x: 46, y: 66, label: "Animal movement" },
-            { x: 18, y: 43, label: "Knowledge of bodies" },
-            { x: 57, y: 73, label: "Practice before permanence" }
-          ]
+          overlayImage: "assets/cave-overlays/hunters.png",
+          overlayAlt: "Hunters standing in the cave foreground, studying the painted wall.",
+          overlayHeight: "38%"
         },
         {
           id: "family",
           label: "Family home",
           caption: "A family-home frame turns the wall into teaching, affection, memory, play, and the ordinary life of human beings.",
-          annotations: [
-            { x: 42, y: 67, label: "Memory and play" },
-            { x: 25, y: 48, label: "Familiar animals" },
-            { x: 70, y: 41, label: "Comfort" }
-          ]
+          overlayImage: "assets/cave-overlays/family.png",
+          overlayAlt: "A family group in the cave foreground, adults and children together.",
+          overlayHeight: "33%"
         },
         {
           id: "sacred",
           label: "Sacred space",
           caption: "A sacred-space frame turns the wall into reverence, ritual, memory, and meanings we may no longer know how to read.",
-          annotations: [
-            { x: 70, y: 20, label: "Ritual and reverence" },
-            { x: 55, y: 34, label: "A place set apart" },
-            { x: 34, y: 54, label: "Memory made sacred" }
-          ]
+          overlayImage: "assets/cave-overlays/sacred.png",
+          overlayAlt: "Two figures in the cave foreground, still and apart, facing the wall.",
+          overlayHeight: "45%"
         }
       ]
     },
@@ -264,6 +258,38 @@ const modules = [
       license: "Public domain",
       sourceUrl: "https://commons.wikimedia.org/wiki/File:RMS_Titanic_3.jpg"
     },
+    headlineCards: [
+      {
+        era: "April 16, 1912",
+        source: "The New York Times, morning edition",
+        headline: "Titanic Sinks Four Hours After Hitting Iceberg; 866 Rescued by Carpathia, Probably 1,250 Perish",
+        dek: "The first wire reports focus on numbers, the iceberg, the wireless calls, and which ships responded."
+      },
+      {
+        era: "1912–1920s",
+        source: "Inquiry reports and popular press",
+        headline: "Lifeboats for Half: Senate and Board of Trade Find Regulation Lagged Behind the Ships",
+        dek: "Both inquiries point at lifeboat rules written for smaller vessels, ice warnings the bridge received, and the Californian's silent wireless. The story is a regulatory failure."
+      },
+      {
+        era: "1955",
+        source: "Walter Lord, A Night to Remember",
+        headline: "The Last Hours of a Great Ship: Heroism, Order, and the Band That Played On",
+        dek: "Lord's reconstruction, drawn from survivor interviews, foregrounds individual conduct. The picture becomes one of dignity under disaster."
+      },
+      {
+        era: "1997",
+        source: "James Cameron's Titanic enters wide release",
+        headline: "A Love Across the Decks: Romance, Class, and the Ship as Tragedy's Stage",
+        dek: "The film fuses a love story with a class allegory. For a generation, the Titanic becomes about who was let into the lifeboats and who wasn't."
+      },
+      {
+        era: "2010s onward",
+        source: "Revisionist scholarship and centennial coverage",
+        headline: "Not Hubris, but a System: Coal Fires, Speed, Ice Warnings, and the Limits of \"Unsinkable\"",
+        dek: "Recent work re-centers the event as the convergence of commercial pressure, design assumptions, weather, and a word — \"unsinkable\" — that did most of its work after the sinking, not before."
+      }
+    ],
     sections: [
       {
         title: "What comes to mind when you think of Titanic?",
@@ -276,9 +302,9 @@ const modules = [
     ],
     closingLine: "The ship did not change. The story did.",
     interaction: {
-      type: "comparison",
+      type: "headlineScroller",
       intro:
-        "The public language around Titanic quickly became grief, shock, blame, and meaning. The inquiry language was colder because it had to be.",
+        "The public language around Titanic kept changing as each era found a different story in the same wreck.",
       columns: [
         {
           title: "What people said after",
@@ -347,7 +373,8 @@ const modules = [
     interaction: {
       type: "hiddenTimeline",
       intro:
-        "The bar begins as a label. Open it and the supposed darkness fills with institutions, buildings, books, tools, and arguments.",
+        "The Renaissance story depends on the darkness before it. So before we look at the rebirth, open the thing it was supposedly reborn from.",
+      instruction: "Click the bar to see what was already there.",
       label: "The Dark Ages",
       events: [
         { year: "1088", title: "University of Bologna", detail: "Conventionally treated as the founding year of the Studium of Bologna." },
@@ -541,13 +568,16 @@ function renderLayerInteraction(module) {
         `).join("")}
       </div>
       <figure class="layered-figure">
-        <img
-          src="${escapeHtml(module.image.url)}"
-          data-fallback="${escapeHtml(module.image.fallback)}"
-          alt="${escapeHtml(module.image.alt)}"
-          loading="lazy"
-        >
-        <div class="annotation-layer" aria-live="polite" data-annotation-layer></div>
+        <div class="cave-image-container">
+          <img
+            class="cave-painting"
+            src="${escapeHtml(module.image.url)}"
+            data-fallback="${escapeHtml(module.image.fallback)}"
+            alt="${escapeHtml(module.image.alt)}"
+            loading="lazy"
+          >
+          <img data-cave-overlay class="cave-overlay" alt="">
+        </div>
         <figcaption data-layer-caption></figcaption>
       </figure>
     </section>
@@ -689,12 +719,35 @@ function renderComparisonInteraction(module) {
   `;
 }
 
+function renderHeadlineScrollerInteraction(module) {
+  return `
+    <section class="interaction headline-interaction reveal-on-scroll" aria-labelledby="${escapeHtml(module.id)}-interaction-title">
+      <div class="interaction-intro">
+        <h3 id="${escapeHtml(module.id)}-interaction-title">Headlines through time</h3>
+        <p>${escapeHtml(module.interaction.intro)}</p>
+      </div>
+      <div class="headline-scroller" tabindex="0" aria-label="Titanic headlines through time">
+        ${module.headlineCards.map((card) => `
+          <article class="headline-card">
+            <p class="headline-card__era">${escapeHtml(card.era)}</p>
+            <p class="headline-card__source">${escapeHtml(card.source)}</p>
+            <h4 class="headline-card__headline">${escapeHtml(card.headline)}</h4>
+            <p class="headline-card__dek">${escapeHtml(card.dek)}</p>
+          </article>
+        `).join("")}
+      </div>
+      <p class="headline-instruction">Scroll through the cards before choosing.</p>
+    </section>
+  `;
+}
+
 function renderHiddenTimelineInteraction(module) {
   return `
     <section class="interaction hidden-timeline-interaction reveal-on-scroll" aria-labelledby="${escapeHtml(module.id)}-interaction-title">
       <div class="interaction-intro">
         <h3 id="${escapeHtml(module.id)}-interaction-title">Open the label</h3>
         <p>${escapeHtml(module.interaction.intro)}</p>
+        ${module.interaction.instruction ? `<p>${escapeHtml(module.interaction.instruction)}</p>` : ""}
       </div>
       <button
         class="dark-age-bar ${state.hiddenTimelineOpen ? "is-open" : ""}"
@@ -724,6 +777,7 @@ function renderInteraction(module) {
   if (module.interaction.type === "provenance") return renderProvenanceInteraction(module);
   if (module.interaction.type === "timeline") return renderTimelineInteraction(module);
   if (module.interaction.type === "comparison") return renderComparisonInteraction(module);
+  if (module.interaction.type === "headlineScroller") return renderHeadlineScrollerInteraction(module);
   if (module.interaction.type === "hiddenTimeline") return renderHiddenTimelineInteraction(module);
   return "";
 }
@@ -826,7 +880,7 @@ function getLayerById(layerId) {
 function updateCaveLayer(layerId) {
   state.caveLayer = layerId;
   const layer = getLayerById(layerId);
-  const annotationLayer = app.querySelector("[data-annotation-layer]");
+  const overlay = app.querySelector("[data-cave-overlay]");
   const caption = app.querySelector("[data-layer-caption]");
 
   app.querySelectorAll("[data-layer]").forEach((button) => {
@@ -835,13 +889,10 @@ function updateCaveLayer(layerId) {
     button.setAttribute("aria-pressed", String(isActive));
   });
 
-  if (annotationLayer) {
-    annotationLayer.innerHTML = layer.annotations.map((annotation) => `
-      <span class="annotation" style="left: ${annotation.x}%; top: ${annotation.y}%;">
-        <span class="annotation-dot"></span>
-        <span class="annotation-label">${escapeHtml(annotation.label)}</span>
-      </span>
-    `).join("");
+  if (overlay) {
+    overlay.src = layer.overlayImage;
+    overlay.alt = layer.overlayAlt;
+    overlay.style.height = layer.overlayHeight || "";
   }
 
   if (caption) {
