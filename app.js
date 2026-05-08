@@ -17,10 +17,9 @@ const modules = [
       {
         title: "What comes to mind when you think of Cavemen?",
         body: [
-          "We picture barbarians, slower and cruder, somewhere far back on the road to becoming what we are now. Modern culture reinforces it: cavemen were brutes, cave paintings were the peak of their artistic capacity, and they grunted around campfires between mammoth hunts. That picture is so familiar it feels like evidence, but is it?",
-          "Take cave paintings. What we actually have is not barbarism. What we do have is art. We see depictions of animals drawn by people who watched them closely and worked carefully. Pigments, planning, technique, and imagination liven the cave walls. None of that proves the painters were gentle, or noble, or anything like us, but it is also not like the cartoons we remember from childhood.",
-          "G.K. Chesterton, a Christian writer from the early 20th century, made the point better than almost anyone. He said the atmosphere of the cave could just as easily feel like a nursery as a savage hunting lodge. Not because he knew it was a nursery, but because the nursery image exposes the assumption. Why did we imagine brutes before we imagined parents, children, memory, play, or home?",
-          "The cave does not force the barbarian picture. We inherited that picture, and once you see that an assumption as foundational as barbaric cavemen comes naturally to you, you may start to wonder what other assumptions you hold that are not necessarily based on good evidence."
+          "We picture barbarians, slow and crude, somewhere far back on the road to becoming what we are now. Modern culture has reinforced the idea that cavemen were brutes, cave paintings were the peak of their artistic capacity, and they grunted around campfires between mammoth hunts. That picture is so familiar it must be a reflection of good scientific evidence, but is it?",
+          "Take cave paintings. We see artistic depictions of animals drawn by people who watched them closely and worked carefully. Pigments, planning, technique, and imagination liven cave walls. None of that proves the painters were gentle, or noble, or anything like us, but it is also not like the cartoons we remember from childhood.",
+          "G.K. Chesterton, a Christian writer from the early 20th century, made the point better than almost anyone. He said the atmosphere of the cave could just as easily feel like a nursery as a savage hunting lodge. Not because he knew it was a nursery, but because the nursery image exposes the assumption. Why do we imagine brutes before we imagine parents, children, sophistication, play, or home? The cave does not force the barbarian picture instead, we inherited that picture, and once you see that an assumption as foundational as barbaric cavemen comes naturally to you, you may start to wonder what other assumptions you hold that are not necessarily based on good evidence."
         ]
       }
     ],
@@ -87,9 +86,9 @@ const modules = [
       {
         title: "What comes to mind when you think of the Wild West?",
         body: [
-          "Most of us picture the Wild West through movies. Dusty streets, saloons, gunfights, sheriffs, outlaws, and a town that could turn violent at any moment. The frontier becomes the place where civilization has not quite arrived yet.",
-          "Some towns were violent. Some people were dangerous. But much of frontier life was ordinary work. Cattle, farms, freight, weather, debt, court records, local rules, and long stretches of boredom. Many towns had gun restrictions. The famous cattle-drive era was short. Many cowboys were young men doing hard, low-paid work.",
-          "Violence made the best stories, so violence became the picture. Dime novels, touring shows, advertising, and Hollywood did not invent the frontier, but they taught later generations how to imagine it. Gunfights survive in memory better than cattle prices, town ordinances, and paperwork."
+          "Most of us picture the Wild West through movies. We think of dusty streets, saloons, gunfights, sheriffs, outlaws, and a town that could turn violent at any moment. The frontier is the place where civilization has not quite arrived yet.",
+          "There were violent towns and violent people, but much of frontier life was what we might describe as ordinary. Typical Western life included cattle, farms, freight, weather, debt, court records, local rules, and long stretches of boredom. Many towns had gun restrictions, and famous cattle-drive era was short-lived. Most cowboys were young men doing hard, low-paying work.",
+          "Violence made the best stories, so violence became the picture presented to us. Dime novels, touring shows, advertising, and Hollywood did not invent the frontier, but they taught later generations how to imagine it. Gunfights survive in memory better than cattle prices, town ordinances, and dusty boredom."
         ]
       }
     ],
@@ -110,7 +109,7 @@ const modules = [
             license: "Public domain",
             sourceUrl: "https://commons.wikimedia.org/wiki/File:Buffalo_Bill%27s_wild_west_and_congress_of_rough_riders_of_the_world_LCCN94513621.jpg"
           },
-          label: "The performed frontier",
+          label: "The pretend frontier",
           provenance: [
             "Source: Library of Congress poster for Buffalo Bill's Wild West and Congress of Rough Riders of the World.",
             "Year: 1899.",
@@ -204,9 +203,9 @@ const modules = [
       {
         title: "What comes to mind when you think of World War II?",
         body: [
-          "Ask many Americans today who did the most to defeat Nazi Germany and the answer feels almost automatic. America. Maybe the Allies if they are being careful. The images are D-Day, GIs liberating villages, and the Greatest Generation.",
-          "More than one story has real evidence behind it. The Soviet Union paid an almost unimaginable human cost and destroyed most of Germany's army on the Eastern Front. The United States supplied enormous industrial power, equipment, soldiers, and helped finish the war. Britain endured, fought, and held the line before America entered. None of these facts cancels the others.",
-          "Public memory has changed over time. Earlier postwar polling in France gave far more credit to the Soviet Union than people usually do now. Later, the Cold War, movies, textbooks, national memory, and politics changed the picture. The question of who won the war partly depends on what you measure, and partly on the generation and country answering it."
+          "Ask many Americans today who did the most to defeat Nazi Germany and the answer feels almost automatic. America. Maybe someone would say \"the Allies\" if they are being careful. People picture images of D-Day, GIs liberating villages, Iwo Jima, and the Greatest Generation.",
+          "There is good evidence that multiple perspectives are valid when thinking about which country contributed the most toward defeating the Axis powers, and no single answer is 'right'. The Soviet Union paid an almost unimaginable human cost and destroyed most of Germany's army on the Eastern Front. The United States supplied enormous industrial power, equipment, soldiers, and helped finish the war. Britain endured, fought, and held the line before America entered.",
+          "Public memory has changed over time. Earlier postwar polling in France gave far more credit to the Soviet Union than people usually do today. Later, the Cold War, movies, textbooks, and politics changed the picture. The question of who won the war partly depends on what you measure, and partly on the generation and country answering it."
         ]
       }
     ],
@@ -214,7 +213,7 @@ const modules = [
     interaction: {
       type: "timeline",
       intro:
-        "This is a French IFOP polling series, not a U.S. series. It is included because it shows how public memory can move while the event stays fixed.",
+        "This is a French IFOP polling series, not a U.S. series. It is included because it shows how public perception can change over time.",
       note:
         "Sources vary by country and methodology. This chart is meant to show the direction of memory, not produce a perfect apples-to-apples polling series.",
       data: [
@@ -291,9 +290,9 @@ const modules = [
       {
         title: "What comes to mind when you think of Titanic?",
         body: [
-          "The Titanic story comes to us as a moral one. The unsinkable ship, brought down by human arrogance. Pride, then ice, then the sea. The disaster becomes a parable about hubris.",
-          "The ship had too few lifeboats for everyone aboard, but it complied with the regulations of the time. Ice warnings were received, but such warnings were common on the route. The ship was moving fast, but not in a way that was obviously strange for the era. Weather and sea conditions made the iceberg harder to see.",
-          "The famous line about God not being able to sink the ship became powerful after the disaster, when people needed the event to mean something. The sinking was not only a morality play. It was also a chain of ordinary human decisions, outdated rules, class arrangements, assumptions, and bad luck. The moral story came later because disaster is hard to leave as disaster."
+          "The modern Titanic story is often presented to us as a tale of class-based moral failings and the unsinkable ship brought down by human arrogance. Although the ship had too few lifeboats for everyone aboard, it complied with the regulations of the time. Ice warnings were received by the crew, but similar warnings were common on the route. The ship was moving fast, but not in a way that was unusual or reckless compared to other ships of the era. Calm sea conditions made the iceberg hard to see.",
+          "It can be hard for people to accept that freak disasters may be morally neutral. We look for meaning, negligence, arrogance, or moral failure when it may not be present. The famous line, that God himself couldn't sink the ship, wasn't widely repeated before the incident. The line became famous when people went looking for hubris to explain what happened.",
+          "A fairer reading is that the collision itself was accidental, and the scale of the tragedy was worsened by outdated lifeboat rules, calm sea conditions, class arrangements, poor decisions, and a nearby ship whose wireless operator was off duty and asleep."
         ]
       }
     ],
@@ -360,9 +359,9 @@ const modules = [
       {
         title: "What comes to mind when you think of the Renaissance?",
         body: [
-          "The Renaissance is usually told as a clean break. First the Dark Ages, then light. Art, science, humanism, and Europe waking up after a long sleep.",
-          "Medieval Europe already had universities, theology, trade, art, mathematics, engineering, and contact with classical and Islamic learning. Bologna, Paris, and Oxford were active well before the period most people call the Renaissance. Gothic cathedrals, scholastic philosophy, clocks, eyeglasses, Dante, Aquinas, and translation movements all complicate the darkness story.",
-          "The Renaissance was real, but it was slower and messier than the story suggests. Money, patrons, cities, trade, printing, recovered texts, and institutions all mattered. The label came later. Darkness, then light is easier to remember than gradual accumulation, so the cleaner picture survived."
+          "The Renaissance is usually thought of as a period of human creativity and flourishing beyond the norm. The Dark Ages stifled art, science, and civilizational progress. Then, with the Renaissance, light: Europe seemingly woke up after a long sleep.",
+          "Yet, Medieval Europe already had universities, theology, trade, art, mathematics, engineering, and contact with classical and Islamic learning. Bologna, Paris, and Oxford were active well before the Renaissance. Gothic cathedrals, scholastic philosophy, clocks, eyeglasses, Dante, Aquinas, and academic breakthroughs all complicate the darkness story.",
+          "The Renaissance was real, but it was slower and messier than the common understanding suggests. Darkness, then light is easier to remember than gradual progress, so the binary interpretation has survived. This doesn't mean that the Renaissance wasn't special or distinctive, but merely that it did not appear out of nowhere."
         ]
       }
     ],
@@ -370,8 +369,7 @@ const modules = [
     interaction: {
       type: "hiddenTimeline",
       intro:
-        "The Renaissance story depends on the darkness before it. So before we look at the rebirth, open the thing it was supposedly reborn from.",
-      instruction: "Click the bar to see what was already there.",
+        "The Renaissance story depends on the darkness before it. Click the banner and see how the Dark Ages were more active, creative, and continuous than the label suggests.",
       label: "The Dark Ages",
       events: [
         { year: "1088", title: "University of Bologna", detail: "Conventionally treated as the founding year of the Studium of Bologna." },
@@ -437,14 +435,13 @@ const modules = [
 const finalPage = {
   heading: "What did you notice?",
   body: [
-    "Five pictures. Five inherited stories. In each one, the familiar version was not stupid. It was just not the only way to arrange the evidence.",
-    "The point was never that history is unknowable. The point is that the version of history in your head got there from somewhere. Books. Movies. School. Family. Church. Politics. The country and time you grew up in.",
-    "The picture is not the past. It is a frame placed over the past, by people, for reasons.",
+    "Five pictures. Five inherited stories. In each one, the familiar version was not the only way to arrange the evidence.",
+    "The point was never that history is unknowable, but that the version of history in your head got there somehow. Books, movies, school, family, church, and the time and place you grew up in have influenced your idea of what the past was like.",
+    "What you picture is not the past, but a frame placed over the past, by people, for reasons.",
     "Once you can see the frame, you can ask where it came from."
   ],
   closingLines: [
-    "We inherit pictures, not the past.",
-    "Sometimes the picture is stronger than the evidence."
+    "We inherit pictures, not the past, and sometimes the picture is stronger than the evidence."
   ]
 };
 
@@ -573,7 +570,15 @@ function renderLayerInteraction(module) {
             alt="${escapeHtml(module.image.alt)}"
             loading="lazy"
           >
-          <img data-cave-overlay class="cave-overlay" data-layer="${escapeHtml(state.caveLayer)}" alt="">
+          ${module.interaction.layers.map((layer) => `
+            <img
+              data-cave-overlay
+              data-layer="${escapeHtml(layer.id)}"
+              class="cave-overlay ${layer.id === state.caveLayer ? "is-active" : ""}"
+              src="${escapeHtml(layer.overlayImage)}"
+              alt="${escapeHtml(layer.overlayAlt)}"
+            >
+          `).join("")}
         </div>
         <figcaption data-layer-caption></figcaption>
       </figure>
@@ -621,7 +626,7 @@ function renderProvenanceInteraction(module) {
   return `
     <section class="interaction provenance-interaction reveal-on-scroll" aria-labelledby="${escapeHtml(module.id)}-interaction-title">
       <div class="interaction-intro">
-        <h3 id="${escapeHtml(module.id)}-interaction-title">Image provenance</h3>
+        <h3 id="${escapeHtml(module.id)}-interaction-title">Where the Picture Came From</h3>
         <p>${escapeHtml(module.interaction.intro)}</p>
       </div>
       ${renderProvenanceStage(module)}
@@ -742,7 +747,7 @@ function renderHiddenTimelineInteraction(module) {
   return `
     <section class="interaction hidden-timeline-interaction reveal-on-scroll" aria-labelledby="${escapeHtml(module.id)}-interaction-title">
       <div class="interaction-intro">
-        <h3 id="${escapeHtml(module.id)}-interaction-title">Open the label</h3>
+        <h3 id="${escapeHtml(module.id)}-interaction-title">Click the banner</h3>
         <p>${escapeHtml(module.interaction.intro)}</p>
         ${module.interaction.instruction ? `<p>${escapeHtml(module.interaction.instruction)}</p>` : ""}
       </div>
@@ -877,20 +882,18 @@ function getLayerById(layerId) {
 function updateCaveLayer(layerId) {
   state.caveLayer = layerId;
   const layer = getLayerById(layerId);
-  const overlay = app.querySelector("[data-cave-overlay]");
+  const overlays = app.querySelectorAll("[data-cave-overlay]");
   const caption = app.querySelector("[data-layer-caption]");
 
-  app.querySelectorAll("[data-layer]").forEach((button) => {
+  app.querySelectorAll('[data-action="set-layer"]').forEach((button) => {
     const isActive = button.dataset.layer === layerId;
     button.classList.toggle("is-active", isActive);
     button.setAttribute("aria-pressed", String(isActive));
   });
 
-  if (overlay) {
-    overlay.src = layer.overlayImage;
-    overlay.alt = layer.overlayAlt;
-    overlay.setAttribute("data-layer", layerId);
-  }
+  overlays.forEach((overlay) => {
+    overlay.classList.toggle("is-active", overlay.dataset.layer === layerId);
+  });
 
   if (caption) {
     caption.textContent = layer.caption;
