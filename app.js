@@ -360,7 +360,7 @@ const modules = [
         title: "What comes to mind when you think of the Renaissance?",
         body: [
           "The Renaissance is usually thought of as a period of human creativity and flourishing beyond the norm. The Dark Ages stifled art, science, and civilizational progress. Then, with the Renaissance, light: Europe seemingly woke up after a long sleep.",
-          "Yet, Medieval Europe already had universities, theology, trade, art, mathematics, engineering, and contact with classical and Islamic learning. Bologna, Paris, and Oxford were active well before the Renaissance. Gothic cathedrals, scholastic philosophy, clocks, eyeglasses, Dante, Aquinas, and academic breakthroughs all complicate the darkness story.",
+          "Yet, Medieval Europe already had universities, theology, trade, art, mathematics, engineering, and contact with classical and Islamic learning. Bologna, Paris, and Oxford were active well before the Renaissance. Gothic cathedrals, scholastic philosophy, clocks, eyeglasses, Dante, Aquinas, and academic breakthroughs all complicate the light from darkness story.",
           "The Renaissance was real, but it was slower and messier than the common understanding suggests. Darkness, then light is easier to remember than gradual progress, so the binary interpretation has survived. This doesn't mean that the Renaissance wasn't special or distinctive, but merely that it did not appear out of nowhere."
         ]
       }
