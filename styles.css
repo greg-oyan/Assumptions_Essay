@@ -1120,17 +1120,43 @@ button,
 }
 
 .story-panel {
+  position: relative;
   display: grid;
   gap: 0.85rem;
+  align-content: start;
   min-height: 22rem;
-  padding: 1.35rem;
-  border: 1px solid rgba(32, 29, 24, 0.22);
-  border-radius: 4px;
+  overflow: hidden;
+  padding: 1.45rem;
+  border: 1px solid rgba(32, 29, 24, 0.2);
+  border-radius: 6px;
+  background: #f6efe3;
   color: var(--ink);
+  box-shadow:
+    0 14px 30px rgba(32, 29, 24, 0.08),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.38);
   transition:
     background 180ms ease,
     border-color 180ms ease,
     box-shadow 180ms ease;
+}
+
+.story-panel::before,
+.story-panel::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  pointer-events: none;
+}
+
+.story-panel::before {
+  top: 0;
+  height: 0.28rem;
+  background: rgba(146, 93, 45, 0.34);
+}
+
+.story-panel > * {
+  position: relative;
 }
 
 .story-panel-meta {
@@ -1138,6 +1164,8 @@ button,
   justify-content: space-between;
   gap: 1rem;
   align-items: baseline;
+  padding-bottom: 0.72rem;
+  border-bottom: 1px solid rgba(32, 29, 24, 0.12);
 }
 
 .story-era,
@@ -1180,6 +1208,7 @@ button,
   padding: 0.22rem 0.55rem;
   border: 1px solid rgba(32, 29, 24, 0.28);
   border-radius: 999px;
+  background: rgba(255, 255, 255, 0.38);
   color: var(--muted);
   font-size: 0.7rem;
   font-weight: 720;
@@ -1203,9 +1232,14 @@ button,
 }
 
 .story-panel--newspaper {
-  background: #f3ead8;
-  border-color: rgba(32, 29, 24, 0.32);
-  box-shadow: inset 0 0 0 1px rgba(32, 29, 24, 0.06);
+  background:
+    linear-gradient(0deg, rgba(32, 29, 24, 0.025), rgba(32, 29, 24, 0.025)),
+    #f3ead8;
+  border-color: rgba(32, 29, 24, 0.25);
+}
+
+.story-panel--newspaper::before {
+  background: rgba(32, 29, 24, 0.44);
 }
 
 .story-panel--newspaper .story-headline {
@@ -1220,8 +1254,24 @@ button,
 
 .story-panel--report {
   background:
-    linear-gradient(90deg, rgba(32, 29, 24, 0.09) 0 0.22rem, transparent 0.22rem),
-    #f7f1e6;
+    linear-gradient(180deg, rgba(32, 29, 24, 0.032) 0 1px, transparent 1px 2.4rem),
+    #f8f5ed;
+  border-color: rgba(32, 29, 24, 0.22);
+}
+
+.story-panel--report::before {
+  height: 0.22rem;
+  background: rgba(83, 74, 63, 0.42);
+}
+
+.story-panel--report .story-panel-meta {
+  border-bottom-color: rgba(32, 29, 24, 0.18);
+}
+
+.story-panel--report .story-frame {
+  background: rgba(32, 29, 24, 0.045);
+  border-color: rgba(32, 29, 24, 0.22);
+  color: rgba(32, 29, 24, 0.72);
 }
 
 .story-panel--report .story-headline {
@@ -1235,8 +1285,12 @@ button,
 }
 
 .story-panel--book {
-  background: #f0e4d3;
-  border-color: rgba(112, 72, 42, 0.36);
+  background: #f2e7d8;
+  border-color: rgba(112, 72, 42, 0.26);
+}
+
+.story-panel--book::before {
+  background: rgba(112, 72, 42, 0.42);
 }
 
 .story-panel--book .story-headline {
@@ -1252,20 +1306,25 @@ button,
 
 .story-panel--film {
   background:
-    linear-gradient(145deg, rgba(32, 29, 24, 0.92), rgba(83, 36, 32, 0.86)),
-    #201d18;
-  border-color: rgba(244, 237, 226, 0.2);
+    linear-gradient(180deg, rgba(45, 58, 70, 0.07), transparent 4.8rem),
+    #f5eee2;
+  border-color: rgba(45, 58, 70, 0.24);
 }
 
-.story-panel--film .story-era,
-.story-panel--film .story-frame,
-.story-panel--film .story-headline {
-  color: #fff7e8;
+.story-panel--film::before,
+.story-panel--film::after {
+  height: 0.42rem;
+  background: rgba(45, 58, 70, 0.78);
 }
 
-.story-panel--film .story-artifact,
-.story-panel--film .story-body {
-  color: rgba(255, 247, 232, 0.76);
+.story-panel--film::after {
+  bottom: 0;
+}
+
+.story-panel--film .story-frame {
+  background: rgba(45, 58, 70, 0.08);
+  border-color: rgba(45, 58, 70, 0.28);
+  color: rgba(32, 29, 24, 0.74);
 }
 
 .story-panel--film .story-headline {
@@ -1281,9 +1340,16 @@ button,
 }
 
 .story-panel--modern {
-  background: #f7f7f2;
+  background:
+    linear-gradient(90deg, rgba(32, 29, 24, 0.035) 1px, transparent 1px),
+    linear-gradient(180deg, rgba(32, 29, 24, 0.025) 1px, transparent 1px),
+    #f7f7f2;
+  background-size: 2.2rem 2.2rem;
   border-color: rgba(32, 29, 24, 0.18);
-  box-shadow: 0 12px 28px rgba(32, 29, 24, 0.08);
+}
+
+.story-panel--modern::before {
+  background: rgba(64, 96, 98, 0.42);
 }
 
 .story-panel--modern .story-headline {
