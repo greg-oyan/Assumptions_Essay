@@ -511,7 +511,6 @@ button,
 }
 
 .provenance-copy h4,
-.comparison-panel h4,
 .hidden-events h4 {
   margin: 0;
   color: var(--ink);
@@ -528,7 +527,6 @@ button,
 
 .provenance-copy p,
 .provenance-copy li,
-.comparison-panel p,
 .hidden-events p,
 .source-inline {
   margin: 0;
@@ -619,59 +617,6 @@ button,
   color: var(--quiet);
 }
 
-.comparison-controls {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.6rem;
-  margin-bottom: 1rem;
-}
-
-.comparison-button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 2.7rem;
-  padding: 0.68rem 0.92rem;
-  border: 1px solid var(--line-strong);
-  border-radius: 6px;
-  background: transparent;
-  color: var(--ink);
-  cursor: pointer;
-  transition:
-    background 180ms ease,
-    border-color 180ms ease,
-    color 180ms ease;
-}
-
-.comparison-button:hover,
-.comparison-button.is-active {
-  border-color: var(--charcoal);
-  background: var(--charcoal);
-  color: var(--paper);
-}
-
-.comparison-panel {
-  display: grid;
-  align-content: start;
-  gap: 0.7rem;
-  min-height: 13rem;
-  padding: 1.1rem 0 0;
-  border-top: 3px solid var(--line-strong);
-}
-
-.comparison-kicker {
-  color: var(--ochre);
-  font-family:
-    ui-sans-serif,
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Segoe UI",
-    sans-serif;
-  font-size: 0.84rem;
-  font-weight: 720;
-}
-
 .dark-age-bar {
   position: relative;
   width: 100%;
@@ -752,8 +697,9 @@ button,
   width: min(58rem, 100%);
   margin: 3.5rem auto 0;
   color: var(--charcoal);
-  font-size: 2.45rem;
-  line-height: 1.08;
+  font-size: clamp(1.75rem, 3vw, 2.15rem);
+  font-style: italic;
+  line-height: 1.18;
 }
 
 .sources {
@@ -789,11 +735,9 @@ button,
 }
 
 .final-section {
-  min-height: 100vh;
-  min-height: 100svh;
-  display: grid;
-  align-items: center;
-  padding: 6rem 1.25rem;
+  min-height: auto;
+  display: block;
+  padding: clamp(4rem, 7vw, 5.5rem) 1.25rem 6rem;
   background: var(--paper);
 }
 
@@ -850,7 +794,6 @@ button,
 
 .button:focus-visible,
 .layer-button:focus-visible,
-.comparison-button:focus-visible,
 .provenance-image-button:focus-visible,
 .dark-age-bar:focus-visible,
 .track-step:focus-visible,
@@ -887,10 +830,6 @@ button,
     font-size: 1.24rem;
   }
 
-  .closing-line {
-    font-size: 3.7rem;
-  }
-
   .spine-lines p {
     font-size: 4.6rem;
   }
@@ -924,6 +863,7 @@ button,
   .stat-number {
     font-size: 2.45rem;
   }
+}
 
 @media (max-width: 620px) {
   .cover,
@@ -962,13 +902,11 @@ button,
   }
 
   .button,
-  .layer-button,
-  .comparison-button {
+  .layer-button {
     width: 100%;
   }
 
-  .layer-controls,
-  .comparison-controls {
+  .layer-controls {
     display: grid;
     grid-template-columns: 1fr;
   }
@@ -981,7 +919,6 @@ button,
     max-height: 70rem;
   }
 
-  .closing-line,
   .spine-lines p {
     font-size: 2.15rem;
   }
@@ -999,8 +936,6 @@ button,
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
   }
-}
-
 }
 
 .story-shift {
@@ -1170,7 +1105,6 @@ button,
 
 .story-era,
 .story-artifact,
-.story-frame-prompt,
 .story-frame {
   margin: 0;
   font-family:
@@ -1186,7 +1120,7 @@ button,
   color: var(--ochre);
   font-size: 0.76rem;
   font-weight: 780;
-  text-transform: uppercase;
+  text-transform: none;
 }
 
 .story-artifact {
@@ -1195,25 +1129,20 @@ button,
   font-style: italic;
 }
 
-.story-frame-prompt {
+.story-frame {
+  display: block;
   color: var(--muted);
-  font-size: 0.88rem;
+  font-size: 0.82rem;
+  font-weight: 640;
+  letter-spacing: 0;
   line-height: 1.35;
+  text-transform: none;
 }
 
-.story-frame {
-  display: inline-flex;
-  align-items: center;
-  width: fit-content;
-  padding: 0.22rem 0.55rem;
-  border: 1px solid rgba(32, 29, 24, 0.28);
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.38);
-  color: var(--muted);
-  font-size: 0.7rem;
-  font-weight: 720;
-  letter-spacing: 0.02em;
-  line-height: 1;
+.story-frame span {
+  color: var(--quiet);
+  font-weight: 780;
+  letter-spacing: 0.03em;
   text-transform: uppercase;
 }
 
@@ -1268,12 +1197,6 @@ button,
   border-bottom-color: rgba(32, 29, 24, 0.18);
 }
 
-.story-panel--report .story-frame {
-  background: rgba(32, 29, 24, 0.045);
-  border-color: rgba(32, 29, 24, 0.22);
-  color: rgba(32, 29, 24, 0.72);
-}
-
 .story-panel--report .story-headline {
   font-family:
     Georgia,
@@ -1319,12 +1242,6 @@ button,
 
 .story-panel--film::after {
   bottom: 0;
-}
-
-.story-panel--film .story-frame {
-  background: rgba(45, 58, 70, 0.08);
-  border-color: rgba(45, 58, 70, 0.28);
-  color: rgba(32, 29, 24, 0.74);
 }
 
 .story-panel--film .story-headline {

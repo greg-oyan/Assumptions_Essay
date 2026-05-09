@@ -19,11 +19,11 @@ const modules = [
         body: [
           "We picture barbarians, slow and crude, somewhere far back on the road to becoming what we are now. Modern culture has reinforced the idea that cavemen were brutes, cave paintings were the peak of their artistic capacity, and they grunted around campfires between mammoth hunts. That picture is so familiar it must be a reflection of good scientific evidence, but is it?",
           "Take cave paintings. We see artistic depictions of animals drawn by people who watched them closely and worked carefully. Pigments, planning, technique, and imagination liven cave walls. None of that proves the painters were gentle, or noble, or anything like us, but it is also not like the cartoons we remember from childhood.",
-          "G.K. Chesterton, a Christian writer from the early 20th century, made the point better than almost anyone. He said the atmosphere of the cave could just as easily feel like a nursery as a savage hunting lodge. Not because he knew it was a nursery, but because the nursery image exposes the assumption. Why do we imagine brutes before we imagine parents, children, sophistication, play, or home? The cave does not force the barbarian picture instead, we inherited that picture, and once you see that an assumption as foundational as barbaric cavemen comes naturally to you, you may start to wonder what other assumptions you hold that are not necessarily based on good evidence."
+          "G.K. Chesterton, a Christian writer from the early 20th century, made the point better than almost anyone. He said the atmosphere of the cave could just as easily feel like a nursery as a savage hunting lodge. Not because he knew it was a nursery, but because the nursery image exposes the assumption. Why do we imagine brutes before we imagine parents, children, sophistication, play, or home? The cave does not force the barbarian picture; instead, we inherited that picture, and once you see that an assumption as foundational as barbaric cavemen comes naturally to you, you may start to wonder what other assumptions you hold that are not necessarily based on good evidence."
         ]
       }
     ],
-    closingLine: "The Cave did not change. The frame did.",
+    closingLine: "The cave did not change. The frame did.",
     interaction: {
       type: "layers",
       intro:
@@ -87,7 +87,7 @@ const modules = [
         title: "What comes to mind when you think of the Wild West?",
         body: [
           "Most of us picture the Wild West through movies. We think of dusty streets, saloons, gunfights, sheriffs, outlaws, and a town that could turn violent at any moment. The frontier is the place where civilization has not quite arrived yet.",
-          "There were violent towns and violent people, but much of frontier life was what we might describe as ordinary. Typical Western life included cattle, farms, freight, weather, debt, court records, local rules, and long stretches of boredom. Many towns had gun restrictions, and famous cattle-drive era was short-lived. Most cowboys were young men doing hard, low-paying work.",
+          "There were violent towns and violent people, but much of frontier life was what we might describe as ordinary. Typical Western life included cattle, farms, freight, weather, debt, court records, local rules, and long stretches of boredom. Many towns had gun restrictions, and the famous cattle-drive era was short-lived. Most cowboys were young men doing hard, low-paying work.",
           "Violence made the best stories, so violence became the picture presented to us. Dime novels, touring shows, advertising, and Hollywood did not invent the frontier, but they taught later generations how to imagine it. Gunfights survive in memory better than cattle prices, town ordinances, and dusty boredom."
         ]
       }
@@ -359,7 +359,7 @@ const modules = [
         title: "What comes to mind when you think of the Renaissance?",
         body: [
           "The Renaissance is usually thought of as a period of human creativity and flourishing beyond the norm. The Dark Ages stifled art, science, and civilizational progress. Then, with the Renaissance, light: Europe seemingly woke up after a long sleep.",
-          "Yet, Medieval Europe already had universities, theology, trade, art, mathematics, engineering, and contact with classical and Islamic learning. Bologna, Paris, and Oxford were active well before the Renaissance. Gothic cathedrals, scholastic philosophy, clocks, eyeglasses, Dante, Aquinas, and academic breakthroughs all complicate the light from darkness story.",
+          "Yet, Medieval Europe already had universities, theology, trade, art, mathematics, engineering, and contact with classical and Islamic learning. Bologna, Paris, and Oxford were active well before the Renaissance. Gothic cathedrals, scholastic philosophy, clocks, eyeglasses, Dante, Aquinas, and academic breakthroughs all complicate the darkness-then-light story.",
           "The Renaissance was real, but it was slower and messier than the common understanding suggests. Darkness, then light is easier to remember than gradual progress, so the binary interpretation has survived. This doesn't mean that the Renaissance wasn't special or distinctive, but merely that it did not appear out of nowhere."
         ]
       }
@@ -452,7 +452,6 @@ const state = {
   provenanceIndex: 0,
   revealedProvenance: {},
   wwiiPosition: 0,
-  titanicComparisonIndex: 0,
   titanicStoryIndex: 0,
   hiddenTimelineOpen: false
 };
@@ -676,51 +675,6 @@ function renderTimelineInteraction(module) {
   `;
 }
 
-function renderComparisonPanel(module) {
-  const columns = module.interaction.columns;
-  const index = Math.max(0, Math.min(columns.length - 1, state.titanicComparisonIndex));
-  const column = columns[index];
-
-  return `
-    <article
-      class="comparison-panel"
-      id="${escapeHtml(module.id)}-comparison-panel"
-      data-comparison-panel
-      aria-live="polite"
-    >
-      <p class="comparison-kicker">${escapeHtml(column.kicker)}</p>
-      <h4>${escapeHtml(column.title)}</h4>
-      <p>${escapeHtml(column.body)}</p>
-      <a href="${escapeHtml(column.sourceUrl)}">${escapeHtml(column.sourceTitle)}</a>
-    </article>
-  `;
-}
-
-function renderComparisonInteraction(module) {
-  return `
-    <section class="interaction comparison-interaction reveal-on-scroll" aria-labelledby="${escapeHtml(module.id)}-interaction-title">
-      <div class="interaction-intro">
-        <h3 id="${escapeHtml(module.id)}-interaction-title">Two kinds of language</h3>
-        <p>${escapeHtml(module.interaction.intro)}</p>
-      </div>
-      <div class="comparison-controls" role="tablist" aria-label="Titanic language comparison">
-        ${module.interaction.columns.map((column, index) => `
-          <button
-            class="comparison-button ${index === state.titanicComparisonIndex ? "is-active" : ""}"
-            type="button"
-            role="tab"
-            aria-selected="${index === state.titanicComparisonIndex ? "true" : "false"}"
-            aria-controls="${escapeHtml(module.id)}-comparison-panel"
-            data-action="set-comparison-view"
-            data-comparison-index="${index}"
-          >${escapeHtml(column.title)}</button>
-        `).join("")}
-      </div>
-      ${renderComparisonPanel(module)}
-    </section>
-  `;
-}
-
 function getStoryShiftPoint(module, position = state.titanicStoryIndex) {
   const eras = module.interaction.eras;
   const index = Math.max(0, Math.min(eras.length - 1, Math.round(Number(position))));
@@ -741,8 +695,7 @@ function renderStoryPanel(module) {
         <p class="story-era">${escapeHtml(story.era)}</p>
         <p class="story-artifact">${escapeHtml(story.artifact)}</p>
       </div>
-      <p class="story-frame-prompt">In this era, Titanic became a story about:</p>
-      <p class="story-frame">${escapeHtml(story.frame)}</p>
+      <p class="story-frame"><span>Frame:</span> ${escapeHtml(story.frame)}</p>
       <h4 class="story-headline">${escapeHtml(story.headline)}</h4>
       <p class="story-body">${escapeHtml(story.body)}</p>
     </article>
@@ -830,7 +783,6 @@ function renderInteraction(module) {
   if (module.interaction.type === "layers") return renderLayerInteraction(module);
   if (module.interaction.type === "provenance") return renderProvenanceInteraction(module);
   if (module.interaction.type === "timeline") return renderTimelineInteraction(module);
-  if (module.interaction.type === "comparison") return renderComparisonInteraction(module);
   if (module.interaction.type === "storyShift") return renderStoryShiftInteraction(module);
   if (module.interaction.type === "hiddenTimeline") return renderHiddenTimelineInteraction(module);
   return "";
@@ -1030,26 +982,6 @@ function setTitanicStory(index) {
   }
 }
 
-function setComparisonView(index) {
-  const titanic = modules.find((module) => module.id === "titanic");
-  const columns = titanic.interaction.columns;
-  const scrollLeft = window.scrollX;
-  const scrollTop = window.scrollY;
-  state.titanicComparisonIndex = Math.max(0, Math.min(columns.length - 1, Number(index)));
-  const panel = app.querySelector("[data-comparison-panel]");
-
-  app.querySelectorAll("[data-comparison-index]").forEach((button) => {
-    const isActive = Number(button.dataset.comparisonIndex) === state.titanicComparisonIndex;
-    button.classList.toggle("is-active", isActive);
-    button.setAttribute("aria-selected", String(isActive));
-  });
-
-  if (panel) {
-    panel.outerHTML = renderComparisonPanel(titanic);
-    window.scrollTo(scrollLeft, scrollTop);
-  }
-}
-
 function setHiddenTimeline(open) {
   state.hiddenTimelineOpen = open;
   const bar = app.querySelector("[data-hidden-timeline-bar]");
@@ -1164,9 +1096,6 @@ app.addEventListener("click", (event) => {
   }
   if (action === "advance-provenance") {
     advanceProvenance();
-  }
-  if (action === "set-comparison-view") {
-    setComparisonView(actionTarget.dataset.comparisonIndex);
   }
   if (action === "toggle-hidden-timeline") {
     setHiddenTimeline(true);
