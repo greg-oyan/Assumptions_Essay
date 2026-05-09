@@ -268,8 +268,8 @@ const modules = [
     interaction: {
       type: "storyShift",
       title: "Same Ship, Different Story",
-      intro: "Move through the eras and watch the story change around the same event.",
-      fixedTitle: "What stayed fixed",
+      intro: "The record stays fixed. Move through time and watch the same disaster become a different kind of story.",
+      fixedTitle: "The record",
       fixedItems: [
         "A ship struck an iceberg in calm sea conditions.",
         "There were not enough lifeboats for everyone aboard.",
@@ -298,7 +298,7 @@ const modules = [
           frame: "Heroism and dignity",
           artifact: "Book reconstruction",
           headline: "The Last Hours of a Great Ship",
-          body: "Walter Lord's reconstruction foregrounded individual conduct, survivor memory, order, courage, and the band that played on.",
+          body: "Walter Lord's reconstruction used survivor memories to retell the disaster as a story of order, courage, dignity, and the band that played on.",
           style: "book"
         },
         {
@@ -741,6 +741,7 @@ function renderStoryPanel(module) {
         <p class="story-era">${escapeHtml(story.era)}</p>
         <p class="story-artifact">${escapeHtml(story.artifact)}</p>
       </div>
+      <p class="story-frame-prompt">In this era, Titanic became a story about:</p>
       <p class="story-frame">${escapeHtml(story.frame)}</p>
       <h4 class="story-headline">${escapeHtml(story.headline)}</h4>
       <p class="story-body">${escapeHtml(story.body)}</p>
@@ -786,7 +787,7 @@ function renderStoryShiftInteraction(module) {
           </ul>
         </article>
         <div class="story-changing-panel">
-          <p class="story-panel-label">What the story became</p>
+          <p class="story-panel-label">The frame</p>
           ${renderStoryPanel(module)}
         </div>
       </div>

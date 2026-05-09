@@ -1034,12 +1034,14 @@ button,
     sans-serif;
   font-size: 0.82rem;
   line-height: 1.2;
+  text-transform: none;
 }
 
 .story-ticks span {
   min-width: 0;
   text-align: center;
   transition: color 160ms ease;
+  text-transform: none;
 }
 
 .story-ticks span:first-child {
@@ -1140,6 +1142,7 @@ button,
 
 .story-era,
 .story-artifact,
+.story-frame-prompt,
 .story-frame {
   margin: 0;
   font-family:
@@ -1164,13 +1167,24 @@ button,
   font-style: italic;
 }
 
-.story-frame {
-  width: fit-content;
-  padding: 0.28rem 0.55rem;
-  border: 1px solid currentColor;
+.story-frame-prompt {
   color: var(--muted);
-  font-size: 0.78rem;
+  font-size: 0.88rem;
+  line-height: 1.35;
+}
+
+.story-frame {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  padding: 0.22rem 0.55rem;
+  border: 1px solid rgba(32, 29, 24, 0.28);
+  border-radius: 999px;
+  color: var(--muted);
+  font-size: 0.7rem;
   font-weight: 720;
+  letter-spacing: 0.02em;
+  line-height: 1;
   text-transform: uppercase;
 }
 
