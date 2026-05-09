@@ -1012,6 +1012,7 @@ function setHiddenTimeline(open) {
   }
 }
 
+// Share the Substack article, not the standalone app URL.
 async function shareEssay(button) {
   const shareData = {
     title: "What Do You See?",
@@ -1030,7 +1031,7 @@ async function shareEssay(button) {
 
   try {
     await navigator.clipboard.writeText(articleUrl);
-    button.textContent = "Link copied";
+    button.textContent = "Article link copied";
     window.setTimeout(() => {
       button.textContent = "Share";
     }, 1500);
