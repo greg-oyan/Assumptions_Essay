@@ -1001,36 +1001,109 @@ button,
   }
 }
 
-.headline-scroller {
-  width: min(100%, 34rem);
-  display: flex;
-  gap: 1rem;
-  overflow-x: auto;
-  padding: 0 0 1rem;
-  scroll-padding-left: 0;
-  scroll-snap-type: x mandatory;
-  scrollbar-color: var(--ochre) rgba(32, 29, 24, 0.12);
 }
 
-.headline-scroller:focus-visible {
-  outline: 3px solid var(--focus);
-  outline-offset: 4px;
-}
-
-.headline-scroller .headline-card {
-  flex: 0 0 min(20rem, calc(100vw - 4rem));
-  min-height: 24rem;
-  display: grid;
-  grid-template-rows: auto auto 1fr auto;
-  gap: 0.85rem;
-  padding: 1.5rem;
+.book {
+  width: min(100%, 36rem);
+  margin-inline: auto;
+  padding: 1rem;
   border: 1px solid rgba(32, 29, 24, 0.24);
+  border-radius: 4px;
   background: #f4ede2;
+  box-shadow: 0 18px 40px rgba(32, 29, 24, 0.14);
   color: var(--ink);
-  scroll-snap-align: start;
 }
 
-.headline-scroller .headline-card__era {
+.book-page-area {
+  position: relative;
+  height: 26rem;
+  overflow: hidden;
+}
+
+.book-page {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  align-content: center;
+  box-sizing: border-box;
+  padding: 2rem;
+  opacity: 1;
+  transform: translateX(0);
+  transition:
+    opacity 200ms ease,
+    transform 200ms ease;
+}
+
+.book-page-area.is-turning-forward.is-leaving .book-page {
+  opacity: 0;
+  transform: translateX(-24px);
+}
+
+.book-page-area.is-turning-backward.is-leaving .book-page {
+  opacity: 0;
+  transform: translateX(24px);
+}
+
+.book-page-area.is-turning-forward.is-entering .book-page {
+  opacity: 0;
+  transform: translateX(24px);
+  transition: none;
+}
+
+.book-page-area.is-turning-backward.is-entering .book-page {
+  opacity: 0;
+  transform: translateX(-24px);
+  transition: none;
+}
+
+.book-page--cover {
+  text-align: center;
+}
+
+.book-cover-title {
+  margin: 0;
+  font-family:
+    "Playfair Display",
+    Georgia,
+    "Times New Roman",
+    serif;
+  font-size: clamp(3rem, 8vw, 5.4rem);
+  font-weight: 900;
+  line-height: 0.9;
+}
+
+.book-cover-subtitle,
+.book-cover-date {
+  margin: 0.9rem 0 0;
+  color: var(--muted);
+  font-family:
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+}
+
+.book-cover-subtitle {
+  font-size: 1.15rem;
+  font-weight: 720;
+}
+
+.book-cover-date {
+  font-size: 0.86rem;
+  text-transform: uppercase;
+}
+
+.book-page--era {
+  grid-template-columns: 1fr auto;
+  align-content: start;
+  gap: 0.85rem 1.25rem;
+  overflow-y: auto;
+  text-align: left;
+}
+
+.book-era {
   margin: 0;
   color: var(--ochre);
   font-family:
@@ -1045,8 +1118,26 @@ button,
   text-transform: uppercase;
 }
 
-.headline-scroller .headline-card__source {
+.book-artifact {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  color: rgba(32, 29, 24, 0.66);
+}
+
+.book-headline {
+  grid-column: 1 / -1;
   margin: 0;
+  max-width: 28rem;
+  color: var(--ink);
+  font-size: clamp(1.9rem, 5vw, 3rem);
+  line-height: 1.02;
+  letter-spacing: 0;
+}
+
+.book-body {
+  grid-column: 1 / -1;
+  margin: 0.4rem 0 0;
+  max-width: 28rem;
   color: var(--muted);
   font-family:
     ui-sans-serif,
@@ -1055,40 +1146,42 @@ button,
     BlinkMacSystemFont,
     "Segoe UI",
     sans-serif;
-  font-size: 0.88rem;
-  font-style: italic;
-  line-height: 1.35;
+  font-size: 1rem;
+  line-height: 1.55;
 }
 
-.headline-scroller .headline-card__headline {
-  margin: 0;
-  color: var(--ink);
+.book-page--newspaper-1912 .book-headline {
   font-family:
     Georgia,
     "Times New Roman",
     Times,
     serif;
-  font-size: 1.55rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.book-page--official-1920s .book-headline {
+  font-family:
+    Georgia,
+    "Times New Roman",
+    Times,
+    serif;
+  font-weight: 600;
   line-height: 1.08;
 }
 
-.headline-scroller .headline-card__dek {
-  margin: 0;
-  color: var(--muted);
+.book-page--midcentury-1955 .book-headline {
   font-family:
-    ui-sans-serif,
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Segoe UI",
-    sans-serif;
-  font-size: 0.96rem;
-  line-height: 1.5;
+    Georgia,
+    "Times New Roman",
+    Times,
+    serif;
+  font-size: clamp(2.3rem, 6vw, 3.4rem);
+  font-style: italic;
+  font-weight: 600;
 }
 
-.headline-interaction .headline-instruction {
-  margin: 0.8rem 0 0;
-  color: var(--quiet);
+.book-page--cinematic-1997 .book-headline {
   font-family:
     ui-sans-serif,
     system-ui,
@@ -1096,5 +1189,78 @@ button,
     BlinkMacSystemFont,
     "Segoe UI",
     sans-serif;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.book-page--modern-2010s .book-headline {
+  font-family:
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+  font-weight: 600;
+  line-height: 1.12;
+}
+
+.book-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(32, 29, 24, 0.14);
+  font-family:
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+}
+
+.book-controls button {
+  min-width: 6.5rem;
+  padding: 0.65rem 0.85rem;
+  border: 1px solid rgba(32, 29, 24, 0.28);
+  border-radius: 3px;
+  background: transparent;
+  color: var(--ink);
+  cursor: pointer;
+  font: inherit;
+}
+
+.book-controls button:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+.book-controls span {
+  color: var(--muted);
   font-size: 0.9rem;
+}
+
+@media (max-width: 640px) {
+  .book {
+    padding: 0.7rem;
+  }
+
+  .book-page-area {
+    height: 34rem;
+  }
+
+  .book-page {
+    padding: 1.25rem;
+  }
+
+  .book-page--era {
+    grid-template-columns: 1fr;
+  }
+
+  .book-artifact {
+    grid-column: 1;
+    grid-row: auto;
+  }
 }
