@@ -73,7 +73,9 @@ button,
 .timeline-label,
 .source-inline,
 .sources,
-.final-action {
+.final-action,
+.final-share,
+.share-button {
   font-family:
     ui-sans-serif,
     system-ui,
@@ -814,6 +816,59 @@ button,
   color: var(--paper);
 }
 
+.final-share {
+  display: grid;
+  gap: 0.55rem;
+  align-items: start;
+}
+
+.final-share-label {
+  margin: 0;
+  color: var(--quiet);
+  font-size: 0.78rem;
+  font-weight: 780;
+  text-transform: uppercase;
+}
+
+.share-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  align-items: center;
+}
+
+.share-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.2rem;
+  min-width: 2.45rem;
+  padding: 0.48rem 0.72rem;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  background: rgba(255, 250, 242, 0.42);
+  color: var(--ink-soft);
+  font-size: 0.84rem;
+  font-weight: 760;
+  line-height: 1;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    background 180ms ease,
+    border-color 180ms ease,
+    color 180ms ease;
+}
+
+.share-button:hover {
+  border-color: var(--line-strong);
+  background: var(--paper-soft);
+  color: var(--charcoal);
+}
+
+.share-button.copy {
+  min-width: 5.6rem;
+}
+
 .reveal-on-scroll {
   opacity: 1;
   transform: none;
@@ -838,6 +893,7 @@ button,
 .track-step:focus-visible,
 .topbar-title:focus-visible,
 .final-action:focus-visible,
+.share-button:focus-visible,
 .timeline-slider:focus-visible,
 .sources summary:focus-visible {
   outline: 3px solid var(--focus);

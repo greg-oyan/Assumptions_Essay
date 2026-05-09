@@ -447,6 +447,13 @@ const finalPage = {
 const articleUrl = "https://open.substack.com/pub/gregoryoyan/p/an-interactive-essay-about-assumptions?r=1ls4ur&utm_campaign=post&utm_medium=web&showWelcomeOnShare=true";
 const subscribeUrl = "https://gregoryoyan.substack.com/subscribe";
 const appUrl = "https://greg-oyan.github.io/Assumptions_Essay/";
+const shareText = "What Do You See? — an interactive essay about inherited assumptions, historical memory, and the pictures we mistake for the past.";
+const shareLinks = {
+  x: `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(articleUrl)}`,
+  linkedIn: `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(articleUrl)}`,
+  facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(articleUrl)}`,
+  email: `mailto:?subject=${encodeURIComponent("What Do You See?")}&body=${encodeURIComponent(`${shareText}\n\n${articleUrl}`)}`
+};
 
 const state = {
   activeModuleIndex: 0,
@@ -852,7 +859,43 @@ function renderFinal() {
             target="_blank"
             rel="noopener noreferrer"
           >Subscribe</a>
-          <button class="final-action secondary" type="button" data-action="share-essay">Share</button>
+        </div>
+        <div class="final-share" aria-labelledby="final-share-label">
+          <p class="final-share-label" id="final-share-label">Share</p>
+          <div class="share-row">
+            <a
+              class="share-button"
+              href="${escapeHtml(shareLinks.x)}"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Share on X"
+            >X</a>
+            <a
+              class="share-button"
+              href="${escapeHtml(shareLinks.linkedIn)}"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Share on LinkedIn"
+            >in</a>
+            <a
+              class="share-button"
+              href="${escapeHtml(shareLinks.facebook)}"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Share on Facebook"
+            >f</a>
+            <a
+              class="share-button"
+              href="${escapeHtml(shareLinks.email)}"
+              aria-label="Share by email"
+            >Email</a>
+            <button
+              class="share-button copy"
+              type="button"
+              data-action="copy-article-link"
+              aria-label="Copy article link"
+            >Copy link</button>
+          </div>
         </div>
       </div>
     </section>
@@ -1012,28 +1055,12 @@ function setHiddenTimeline(open) {
   }
 }
 
-// Share the Substack article, not the standalone app URL.
-async function shareEssay(button) {
-  const shareData = {
-    title: "What Do You See?",
-    text: "An interactive essay about inherited assumptions, historical memory, and the pictures we mistake for the past.",
-    url: articleUrl
-  };
-
-  if (navigator.share) {
-    try {
-      await navigator.share(shareData);
-      return;
-    } catch (error) {
-      if (error.name === "AbortError") return;
-    }
-  }
-
+async function copyArticleLink(button) {
   try {
     await navigator.clipboard.writeText(articleUrl);
-    button.textContent = "Article link copied";
+    button.textContent = "Copied";
     window.setTimeout(() => {
-      button.textContent = "Share";
+      button.textContent = "Copy link";
     }, 1500);
   } catch {
     window.prompt("Copy this link:", articleUrl);
@@ -1144,8 +1171,8 @@ app.addEventListener("click", (event) => {
   if (action === "toggle-hidden-timeline") {
     setHiddenTimeline(true);
   }
-  if (action === "share-essay") {
-    shareEssay(actionTarget);
+  if (action === "copy-article-link") {
+    copyArticleLink(actionTarget);
   }
 });
 
