@@ -444,7 +444,9 @@ const finalPage = {
   ]
 };
 
-const substackUrl = "https://substack.com/";
+const articleUrl = "https://open.substack.com/pub/gregoryoyan/p/an-interactive-essay-about-assumptions?r=1ls4ur&utm_campaign=post&utm_medium=web&showWelcomeOnShare=true";
+const subscribeUrl = "https://gregoryoyan.substack.com/subscribe";
+const appUrl = "https://greg-oyan.github.io/Assumptions_Essay/";
 
 const state = {
   activeModuleIndex: 0,
@@ -837,7 +839,21 @@ function renderFinal() {
         <div class="spine-lines">
           ${finalPage.closingLines.map((line) => `<p>${escapeHtml(line)}</p>`).join("")}
         </div>
-        <a class="substack-link" href="${escapeHtml(substackUrl)}" aria-label="Read more on Substack">Read more on Substack</a>
+        <div class="final-actions" aria-label="Next steps">
+          <a
+            class="final-action primary"
+            href="${escapeHtml(articleUrl)}"
+            target="_blank"
+            rel="noopener noreferrer"
+          >Read the article</a>
+          <a
+            class="final-action secondary"
+            href="${escapeHtml(subscribeUrl)}"
+            target="_blank"
+            rel="noopener noreferrer"
+          >Subscribe</a>
+          <button class="final-action secondary" type="button" data-action="share-essay">Share</button>
+        </div>
       </div>
     </section>
   `;
@@ -996,6 +1012,33 @@ function setHiddenTimeline(open) {
   }
 }
 
+async function shareEssay(button) {
+  const shareData = {
+    title: "What Do You See?",
+    text: "An interactive essay about inherited assumptions, historical memory, and the pictures we mistake for the past.",
+    url: articleUrl
+  };
+
+  if (navigator.share) {
+    try {
+      await navigator.share(shareData);
+      return;
+    } catch (error) {
+      if (error.name === "AbortError") return;
+    }
+  }
+
+  try {
+    await navigator.clipboard.writeText(articleUrl);
+    button.textContent = "Link copied";
+    window.setTimeout(() => {
+      button.textContent = "Share";
+    }, 1500);
+  } catch {
+    window.prompt("Copy this link:", articleUrl);
+  }
+}
+
 function goTo(targetId) {
   const target = document.getElementById(targetId);
   if (!target) return;
@@ -1099,6 +1142,9 @@ app.addEventListener("click", (event) => {
   }
   if (action === "toggle-hidden-timeline") {
     setHiddenTimeline(true);
+  }
+  if (action === "share-essay") {
+    shareEssay(actionTarget);
   }
 });
 

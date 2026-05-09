@@ -73,7 +73,7 @@ button,
 .timeline-label,
 .source-inline,
 .sources,
-.substack-link {
+.final-action {
   font-family:
     ui-sans-serif,
     system-ui,
@@ -767,12 +767,51 @@ button,
   line-height: 1;
 }
 
-.substack-link {
-  width: fit-content;
+.final-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+  margin-top: 0.4rem;
+}
+
+.final-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.75rem;
+  padding: 0.72rem 1rem;
+  border: 1px solid var(--line-strong);
+  border-radius: 4px;
   color: var(--charcoal);
-  font-size: 1rem;
+  font-size: 0.96rem;
   font-weight: 720;
-  text-decoration-color: var(--ochre);
+  line-height: 1;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    background 180ms ease,
+    border-color 180ms ease,
+    color 180ms ease;
+}
+
+.final-action.primary {
+  border-color: var(--charcoal);
+  background: var(--charcoal);
+  color: var(--paper);
+}
+
+.final-action.secondary {
+  background: rgba(255, 250, 242, 0.48);
+}
+
+.final-action:hover {
+  border-color: var(--ochre);
+}
+
+.final-action.primary:hover {
+  background: var(--ochre);
+  color: var(--paper);
 }
 
 .reveal-on-scroll {
@@ -798,7 +837,7 @@ button,
 .dark-age-bar:focus-visible,
 .track-step:focus-visible,
 .topbar-title:focus-visible,
-.substack-link:focus-visible,
+.final-action:focus-visible,
 .timeline-slider:focus-visible,
 .sources summary:focus-visible {
   outline: 3px solid var(--focus);
@@ -907,6 +946,11 @@ button,
   }
 
   .layer-controls {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .final-actions {
     display: grid;
     grid-template-columns: 1fr;
   }
