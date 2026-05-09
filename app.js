@@ -266,55 +266,56 @@ const modules = [
     ],
     closingLine: "The ship did not change. The story did.",
     interaction: {
-      type: "book",
-      intro:
-        "The public language around Titanic kept changing as each era found a different story in the same wreck.",
-      pages: [
+      type: "storyShift",
+      title: "Same Ship, Different Story",
+      intro: "Move through the eras and watch the story change around the same event.",
+      fixedTitle: "What stayed fixed",
+      fixedItems: [
+        "A ship struck an iceberg in calm sea conditions.",
+        "There were not enough lifeboats for everyone aboard.",
+        "Warnings, regulations, class arrangements, and wireless failures shaped the loss of life.",
+        "The collision itself was accidental, while the scale of the tragedy was worsened by human systems and decisions."
+      ],
+      eras: [
         {
-          kind: "cover",
-          title: "Titanic",
-          subtitle: "Five Eras, One Ship",
-          date: "April 15, 1912 onward"
-        },
-        {
-          kind: "era",
           era: "April 1912",
+          frame: "Breaking news",
+          artifact: "Newspaper",
           headline: "Titanic Sinks Four Hours After Hitting Iceberg",
-          body: "The first wire reports focus on numbers, the iceberg, the wireless calls, and which ships responded. The story is a count of the dead and the saved.",
-          artifact: "newspaper",
-          typeStyle: "newspaper-1912"
+          body: "The first story is shock, numbers, wireless calls, rescue by Carpathia, and the count of the dead and the saved.",
+          style: "newspaper"
         },
         {
-          kind: "era",
           era: "1912–1920s",
-          headline: "Lifeboats for Half: Inquiries Find Regulation Lagged the Ships",
-          body: "Both the U.S. Senate and the British Board of Trade point at lifeboat rules written for smaller vessels, ice warnings the bridge had received, and a nearby ship whose wireless was silent. The story is a regulatory failure.",
-          artifact: "document",
-          typeStyle: "official-1920s"
+          frame: "Regulatory failure",
+          artifact: "Inquiry report",
+          headline: "Lifeboats for Half",
+          body: "The inquiries shifted attention to lifeboat rules, ice warnings, bridge decisions, and a nearby ship whose wireless was silent.",
+          style: "report"
         },
         {
-          kind: "era",
           era: "1955",
+          frame: "Heroism and dignity",
+          artifact: "Book reconstruction",
           headline: "The Last Hours of a Great Ship",
-          body: "Walter Lord's reconstruction, drawn from survivor interviews, foregrounds individual conduct. The picture becomes one of dignity, order, and the band that played on.",
-          artifact: "paperback",
-          typeStyle: "midcentury-1955"
+          body: "Walter Lord's reconstruction foregrounded individual conduct, survivor memory, order, courage, and the band that played on.",
+          style: "book"
         },
         {
-          kind: "era",
           era: "1997",
+          frame: "Romance and class",
+          artifact: "Film myth",
           headline: "A Love Across the Decks",
-          body: "James Cameron's film fuses a love story with a class allegory. For a generation, the Titanic becomes about who was let into the lifeboats and who wasn't.",
-          artifact: "film",
-          typeStyle: "cinematic-1997"
+          body: "James Cameron's film made Titanic a story about romance, class, access, and who was allowed into the lifeboats.",
+          style: "film"
         },
         {
-          kind: "era",
           era: "2010s onward",
+          frame: "Systems accident",
+          artifact: "Modern analysis",
           headline: "Not Hubris, but a System",
-          body: "Recent scholarship re-centers the event as the convergence of commercial pressure, design assumptions, weather, and a word — \"unsinkable\" — that did most of its work after the sinking, not before.",
-          artifact: "article",
-          typeStyle: "modern-2010s"
+          body: "Recent accounts treat the disaster as a convergence of weather, regulation, design assumptions, commercial pressure, communication failure, and bad luck.",
+          style: "modern"
         }
       ]
     },
@@ -452,12 +453,11 @@ const state = {
   revealedProvenance: {},
   wwiiPosition: 0,
   titanicComparisonIndex: 0,
-  titanicPageIndex: 0,
+  titanicStoryIndex: 0,
   hiddenTimelineOpen: false
 };
 
 let initialHashHandled = false;
-let titanicPageTimer = 0;
 
 const app = document.querySelector("#app");
 
@@ -721,71 +721,73 @@ function renderComparisonInteraction(module) {
   `;
 }
 
-function renderArtifactSvg(type) {
-  const props = `width="80" height="80" viewBox="0 0 80 80" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"`;
-  if (type === "newspaper") {
-    return `<svg ${props}><path d="M14 18 L62 16 L66 64 L18 66 Z"/><line x1="22" y1="26" x2="58" y2="24"/><line x1="22" y1="34" x2="38" y2="33"/><line x1="42" y1="33" x2="58" y2="32"/><line x1="22" y1="42" x2="38" y2="41"/><line x1="42" y1="41" x2="58" y2="40"/><line x1="22" y1="50" x2="38" y2="49"/><line x1="42" y1="49" x2="58" y2="48"/><line x1="40" y1="32" x2="40" y2="58"/></svg>`;
-  }
-  if (type === "document") {
-    return `<svg ${props}><path d="M22 14 L22 66 L58 66 L58 22 L50 14 Z"/><path d="M50 14 L50 22 L58 22"/><line x1="28" y1="32" x2="52" y2="32"/><line x1="28" y1="40" x2="52" y2="40"/><line x1="28" y1="48" x2="44" y2="48"/></svg>`;
-  }
-  if (type === "paperback") {
-    return `<svg ${props}><path d="M20 14 L52 14 L60 18 L60 66 L28 66 L20 62 Z"/><line x1="20" y1="14" x2="28" y2="18"/><line x1="28" y1="18" x2="28" y2="66"/><line x1="28" y1="18" x2="60" y2="18"/></svg>`;
-  }
-  if (type === "film") {
-    return `<svg ${props}><circle cx="40" cy="40" r="24"/><circle cx="40" cy="40" r="6"/><circle cx="40" cy="22" r="3"/><circle cx="40" cy="58" r="3"/><circle cx="22" cy="40" r="3"/><circle cx="58" cy="40" r="3"/></svg>`;
-  }
-  if (type === "article") {
-    return `<svg ${props}><path d="M14 22 L66 22 L66 56 L14 56 Z"/><path d="M10 60 L70 60"/><line x1="22" y1="32" x2="58" y2="32"/><line x1="22" y1="40" x2="50" y2="40"/></svg>`;
-  }
-  return "";
+function getStoryShiftPoint(module, position = state.titanicStoryIndex) {
+  const eras = module.interaction.eras;
+  const index = Math.max(0, Math.min(eras.length - 1, Math.round(Number(position))));
+
+  return {
+    ...eras[index],
+    index,
+    progress: eras.length > 1 ? (index / (eras.length - 1)) * 100 : 0
+  };
 }
 
-function renderBookPage(page, index) {
-  if (page.kind === "cover") {
-    return `
-      <article class="book-page book-page--cover" data-book-page aria-label="Book page ${index + 1}">
-        <div>
-          <h4 class="book-cover-title">${escapeHtml(page.title)}</h4>
-          <p class="book-cover-subtitle">${escapeHtml(page.subtitle)}</p>
-          <p class="book-cover-date">${escapeHtml(page.date)}</p>
-        </div>
-      </article>
-    `;
-  }
+function renderStoryPanel(module) {
+  const story = getStoryShiftPoint(module);
 
   return `
-    <article
-      class="book-page book-page--era book-page--${escapeHtml(page.typeStyle)}"
-      data-book-page
-      aria-label="Book page ${index + 1}: ${escapeHtml(page.era)}"
-    >
-      <div class="book-artifact" aria-hidden="true">${renderArtifactSvg(page.artifact)}</div>
-      <p class="book-era">${escapeHtml(page.era)}</p>
-      <h4 class="book-headline">${escapeHtml(page.headline)}</h4>
-      <p class="book-body">${escapeHtml(page.body)}</p>
+    <article class="story-panel story-panel--${escapeHtml(story.style)}" data-story-panel aria-live="polite">
+      <div class="story-panel-meta">
+        <p class="story-era">${escapeHtml(story.era)}</p>
+        <p class="story-artifact">${escapeHtml(story.artifact)}</p>
+      </div>
+      <p class="story-frame">${escapeHtml(story.frame)}</p>
+      <h4 class="story-headline">${escapeHtml(story.headline)}</h4>
+      <p class="story-body">${escapeHtml(story.body)}</p>
     </article>
   `;
 }
 
-function renderBookInteraction(module) {
-  const pages = module.interaction.pages;
-  const pageIndex = Math.max(0, Math.min(pages.length - 1, state.titanicPageIndex));
+function renderStoryShiftInteraction(module) {
+  const story = getStoryShiftPoint(module);
+  const eras = module.interaction.eras;
 
   return `
-    <section class="interaction book-interaction reveal-on-scroll" aria-labelledby="${escapeHtml(module.id)}-interaction-title">
+    <section class="interaction story-shift reveal-on-scroll" aria-labelledby="${escapeHtml(module.id)}-interaction-title">
       <div class="interaction-intro">
-        <h3 id="${escapeHtml(module.id)}-interaction-title">Five eras, one ship</h3>
+        <h3 id="${escapeHtml(module.id)}-interaction-title">${escapeHtml(module.interaction.title)}</h3>
         <p>${escapeHtml(module.interaction.intro)}</p>
       </div>
-      <div class="book" data-book>
-        <div class="book-page-area" data-book-page-area aria-live="polite">
-          ${renderBookPage(pages[pageIndex], pageIndex)}
+      <div class="story-slider-wrap">
+        <label class="sr-only" for="titanic-story-slider">Move through Titanic story eras</label>
+        <input
+          id="titanic-story-slider"
+          class="story-slider"
+          type="range"
+          min="0"
+          max="${eras.length - 1}"
+          step="1"
+          value="${state.titanicStoryIndex}"
+          style="--story-progress: ${story.progress}%"
+          data-action="titanic-story-slider"
+          aria-label="Move through Titanic story eras"
+        >
+        <div class="story-ticks" aria-hidden="true">
+          ${eras.map((era, index) => `
+            <span class="${index === state.titanicStoryIndex ? "is-active" : ""}" data-story-tick="${index}">${escapeHtml(era.era)}</span>
+          `).join("")}
         </div>
-        <div class="book-controls">
-          <button type="button" data-action="book-prev" data-book-prev ${pageIndex === 0 ? "disabled" : ""}>Previous</button>
-          <span data-book-indicator>${pageIndex + 1} / ${pages.length}</span>
-          <button type="button" data-action="book-next" data-book-next ${pageIndex === pages.length - 1 ? "disabled" : ""}>Next</button>
+      </div>
+      <div class="story-panels">
+        <article class="story-fixed-panel">
+          <p class="story-panel-label">${escapeHtml(module.interaction.fixedTitle)}</p>
+          <ul>
+            ${module.interaction.fixedItems.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}
+          </ul>
+        </article>
+        <div class="story-changing-panel">
+          <p class="story-panel-label">What the story became</p>
+          ${renderStoryPanel(module)}
         </div>
       </div>
     </section>
@@ -828,7 +830,7 @@ function renderInteraction(module) {
   if (module.interaction.type === "provenance") return renderProvenanceInteraction(module);
   if (module.interaction.type === "timeline") return renderTimelineInteraction(module);
   if (module.interaction.type === "comparison") return renderComparisonInteraction(module);
-  if (module.interaction.type === "book") return renderBookInteraction(module);
+  if (module.interaction.type === "storyShift") return renderStoryShiftInteraction(module);
   if (module.interaction.type === "hiddenTimeline") return renderHiddenTimelineInteraction(module);
   return "";
 }
@@ -1002,52 +1004,29 @@ function updateWwiiTimeline(position) {
   if (ussr) ussr.textContent = `${values.ussr}%`;
 }
 
-function updateBookControls(module) {
-  const pages = module.interaction.pages;
-  const pageIndex = Math.max(0, Math.min(pages.length - 1, state.titanicPageIndex));
-  const previousButton = app.querySelector("[data-book-prev]");
-  const nextButton = app.querySelector("[data-book-next]");
-  const indicator = app.querySelector("[data-book-indicator]");
-
-  if (previousButton) previousButton.disabled = pageIndex === 0;
-  if (nextButton) nextButton.disabled = pageIndex === pages.length - 1;
-  if (indicator) indicator.textContent = `${pageIndex + 1} / ${pages.length}`;
-}
-
-function setBookPage(targetIndex) {
+function setTitanicStory(index) {
   const titanic = getTitanicModule();
-  const pages = titanic.interaction.pages;
-  const maxIndex = pages.length - 1;
-  const numericIndex = Number(targetIndex);
-  const nextIndex = Number.isFinite(numericIndex) ? Math.max(0, Math.min(maxIndex, numericIndex)) : 0;
-  const currentIndex = state.titanicPageIndex;
-  const pageArea = app.querySelector("[data-book-page-area]");
+  const story = getStoryShiftPoint(titanic, index);
+  const slider = app.querySelector("[data-action='titanic-story-slider']");
+  const panel = app.querySelector("[data-story-panel]");
   const scrollLeft = window.scrollX;
   const scrollTop = window.scrollY;
 
-  if (nextIndex === currentIndex || !pageArea) return;
+  state.titanicStoryIndex = story.index;
 
-  window.clearTimeout(titanicPageTimer);
-  pageArea.classList.remove("is-turning-forward", "is-turning-backward", "is-leaving", "is-entering");
+  if (slider) {
+    slider.value = state.titanicStoryIndex;
+    slider.style.setProperty("--story-progress", `${story.progress}%`);
+  }
 
-  const directionClass = nextIndex > currentIndex ? "is-turning-forward" : "is-turning-backward";
-  pageArea.classList.add(directionClass, "is-leaving");
+  app.querySelectorAll("[data-story-tick]").forEach((tick) => {
+    tick.classList.toggle("is-active", Number(tick.dataset.storyTick) === state.titanicStoryIndex);
+  });
 
-  titanicPageTimer = window.setTimeout(() => {
-    state.titanicPageIndex = nextIndex;
-    pageArea.classList.remove("is-leaving");
-    pageArea.classList.add("is-entering");
-    pageArea.innerHTML = renderBookPage(pages[nextIndex], nextIndex);
-    updateBookControls(titanic);
+  if (panel) {
+    panel.outerHTML = renderStoryPanel(titanic);
     window.scrollTo(scrollLeft, scrollTop);
-
-    window.requestAnimationFrame(() => {
-      pageArea.classList.remove("is-entering");
-      titanicPageTimer = window.setTimeout(() => {
-        pageArea.classList.remove(directionClass);
-      }, 200);
-    });
-  }, 200);
+  }
 }
 
 function setComparisonView(index) {
@@ -1191,17 +1170,14 @@ app.addEventListener("click", (event) => {
   if (action === "toggle-hidden-timeline") {
     setHiddenTimeline(true);
   }
-  if (action === "book-prev") {
-    setBookPage(state.titanicPageIndex - 1);
-  }
-  if (action === "book-next") {
-    setBookPage(state.titanicPageIndex + 1);
-  }
 });
 
 app.addEventListener("input", (event) => {
   const wwiiSlider = event.target.closest("[data-action='wwii-slider']");
   if (wwiiSlider) updateWwiiTimeline(wwiiSlider.value);
+
+  const titanicStorySlider = event.target.closest("[data-action='titanic-story-slider']");
+  if (titanicStorySlider) setTitanicStory(titanicStorySlider.value);
 });
 
 document.addEventListener("keydown", (event) => {
